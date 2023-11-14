@@ -12,6 +12,7 @@ Currently:
 $ stow emacs
 $ stow jetbrains
 $ stow ranger
+$ stow tmux
 $ stow vim
 $ stow zsh
 ```
