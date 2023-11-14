@@ -17,8 +17,10 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 ########## ALIASES ##########
-# Adds color to ls command results
-alias ls="ls -a -G"
+# shows hidden files, distinguishes types and adds color to ls command results
+alias ls="ls -AFG"
+# Long listing format with ./ and ../ so we can view permissions of current dir
+alias ll="ls -al"
 # Adds color to grep command results
 alias grep="grep --color"
 # Shortcut for ranger
