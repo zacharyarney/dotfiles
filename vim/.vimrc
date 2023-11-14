@@ -258,6 +258,9 @@ call plug#end()
 
 " ----- end vim-plug section -----
 
+
+" ----- plugin config -----
+
     " Potential fix for random line in python files with Python Mode
     " let g:pymode_options_colorcolumn = 0
 

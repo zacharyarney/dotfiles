@@ -21,7 +21,7 @@
 
 
 ;; set projectile-project-search-path
-(setq projectile-project-search-path '("~/projects/" "~/lambda/"))
+(setq projectile-project-search-path '("~/projects/"))
 
 ;; disable evil-snipe to re-enable `s` substitute
 (after! evil-snipe
@@ -44,7 +44,7 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "Cozette" :size 13 :weight 'regular))
+(setq doom-font (font-spec :family "SF Mono" :size 12 :weight 'regular))
 ;; (setq doom-font (font-spec :family "Monaco" :size 10 :weight 'regular :antialias nil))
 ;; (setq ns-antialias-text nil)    ;; turns off anti-aliasing for Monaco
 ;; (setq doom-unicode-extra-fonts 'nil)
