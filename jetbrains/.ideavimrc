@@ -1,0 +1,55 @@
+set nocompatible
+filetype plugin on
+runtime macros/matchit.vim
+set nopaste
+set autoread
+set number
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set smarttab
+set autoindent
+set smartindent
+set surround
+set NERDTree
+" SHIFT-TAB functionality
+" for command mode
+nnoremap <S-Tab> <<
+" for insert mode
+inoremap <S-Tab> <C-d>
+set complete-=i
+" set wrap
+" set linebreak
+" set nolist
+
+"Remaps Esc to 'fd' in insert mode
+inoremap fd <Esc>
+vnoremap fd <Esc>
+
+" excaping brackets etc with Ctrl-j
+:inoremap <C-j> <Esc>/[)}"'\]>]<CR>:nohl<CR>a
+" add brackets etc around highlighted text with \ leader
+:vnoremap \( <Esc>`>a)<Esc>`<i(<Esc>
+:vnoremap \[ <Esc>`>a]<Esc>`<i[<Esc>
+:vnoremap \{ <Esc>`>a}<Esc>`<i{<Esc>
+" :vnoremap \< <Esc>`>a><Esc>`<i<<Esc>
+:vnoremap \' <Esc>`>a'<Esc>`<i'<Esc>
+:vnoremap \" <Esc>`>a"<Esc>`<i"<Esc>
+
+set ruler
+set laststatus=2
+set scrolloff=5
+set sidescrolloff=5
+set display+=lastline
+set mouse=a
+set bs=indent,eol,start
+set hlsearch
+set incsearch
+set wildmenu
+set history=1000
+set tabpagemax=50
+autocmd InsertEnter * set cul
+autocmd InsertLeave * set nocul
+set clipboard=unnamedplus
+set clipboard+=ideaput
+set sessionoptions-=options " prevents plugins etc from overriding .vimrc
