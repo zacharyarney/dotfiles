@@ -26,6 +26,8 @@ alias ll="ls -al"
 alias grep="grep --color"
 # Shows hidden files and adds color to tree command
 alias tree="tree -aC" #use -d to list only directories
+# Shows hidden files in ripgrep
+alias rg="rg --hidden"
 # Shortcut for ranger
 alias ra="ranger"
 # Vim keybindings for lynx
