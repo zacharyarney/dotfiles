@@ -15,6 +15,7 @@ export NVM_DIR="$HOME/.nvm"
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+eval "$(pyenv init --path)"
 
 ########## ALIASES ##########
 # shows hidden files, distinguishes types and adds color to ls command results
@@ -23,6 +24,8 @@ alias ls="ls -AFG"
 alias ll="ls -al"
 # Adds color to grep command results
 alias grep="grep --color"
+# Shows hidden files and adds color to tree command
+alias tree="tree -aC" #use -d to list only directories
 # Shortcut for ranger
 alias ra="ranger"
 # Vim keybindings for lynx
