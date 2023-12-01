@@ -1,7 +1,12 @@
 # dotfiles
 dotfiles
 
-Use GNU `stow` to create symlinks to dotfiles with command:
+Install GNU `stow` and run
+```
+$ ./apply.sh
+```
+**OR**
+Use `stow` to create symlinks to dotfiles with command:
 ```
 $ stow <package name>
 ```
