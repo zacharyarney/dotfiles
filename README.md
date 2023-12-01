@@ -6,6 +6,7 @@ Install GNU `stow` and run
 $ ./apply.sh
 ```
 **OR**
+
 Use `stow` to create symlinks to dotfiles with command:
 ```
 $ stow <package name>
