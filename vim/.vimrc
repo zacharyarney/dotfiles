@@ -26,7 +26,6 @@ function Scratch()
     setlocal bufhidden=hide
 endfunction
 
-filetype plugin on
 runtime macros/matchit.vim
 set nopaste
 set autoread
@@ -132,16 +131,19 @@ augroup END
 
 
 " Language specific tabs
-autocmd FileType python setlocal shiftwidth=4 softtabstop=4 expandtab
-autocmd FileType c setlocal shiftwidth=4 softtabstop=4 expandtab
-autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 expandtab
-autocmd FileType html setlocal shiftwidth=2 softtabstop=2 expandtab
-autocmd FileType css setlocal shiftwidth=2 softtabstop=2 expandtab
+filetype plugin indent on " add FileType files to .vim/after/ftplugin/ directory
+
+" autocmd FileType python setlocal shiftwidth=4 softtabstop=4 expandtab
+" autocmd FileType c setlocal shiftwidth=4 softtabstop=4 expandtab
+" autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 expandtab
+" autocmd FileType html setlocal shiftwidth=2 softtabstop=2 expandtab
+" autocmd FileType css setlocal shiftwidth=2 softtabstop=2 expandtab
+
 
 syntax enable
 
-"Remaps Esc to 'jk' in insert mode
-inoremap fd <Esc>
+"Remaps Esc to 'fd' in insert mode
+" inoremap fd <Esc>
 
 " for vim 7
 set t_Co=256
@@ -209,9 +211,14 @@ Plug 'junegunn/goyo.vim'
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
 
 " Better syntax highlighting and other improvements for JS
-Plug 'othree/es.next.syntax.vim'
-Plug 'othree/yajs.vim'
-Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'jparise/vim-graphql'
+" Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+" Plug 'othree/es.next.syntax.vim'
+" Plug 'othree/yajs.vim'
+" Plug 'mxw/vim-jsx'
 
 " Prettier for web dev related formatting -- post global install (yarn install | npm install)
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
