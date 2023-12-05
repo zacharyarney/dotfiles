@@ -314,6 +314,12 @@ augroup pencil
                             \ | call textobj#sentence#init()
 augroup END
 
+" Lexical config
+let g:lexical#spell_key = '<leader>s'
+let g:lexical#dictionary_key = '<leader>k'
+" Thesaurus not configured yet
+" let g:lexical#thesaurus_key = '<leader>t' 
+
 " Goyo config
 nnoremap <leader>g :Goyo<cr>
 " autocmd FileType markdown,mkd Goyo 80
