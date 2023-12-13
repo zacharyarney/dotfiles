@@ -49,6 +49,7 @@ set autoindent
 set smartindent
 set hidden
 set belloff=all
+set smoothscroll
 
 " Folding
 set foldmethod=syntax
@@ -235,11 +236,23 @@ Plug 'itchyny/lightline.vim'
 " Git diff in gutter
 Plug 'airblade/vim-gitgutter'
 
+" Git tools within vim
+Plug 'tpope/vim-fugitive'
+
 " Vinegar file browser
 Plug 'tpope/vim-vinegar'
 
 " Vim Surround paren, quote, tag handling
 Plug 'tpope/vim-surround'
+
+" Easy comments
+Plug 'tpope/vim-commentary'
+
+" Repeat functionality for tpope plugins
+Plug 'tpope/vim-repeat'
+
+" Run compilers and executables without leaving vim
+Plug 'tpope/vim-dispatch'
 
 " Vim Markdown support
 " tabularize is required for table formatting

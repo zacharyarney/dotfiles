@@ -23,8 +23,8 @@ set complete-=i
 " set nolist
 
 "Remaps Esc to 'fd' in insert mode
-inoremap fd <Esc>
-vnoremap fd <Esc>
+" inoremap fd <Esc>
+" vnoremap fd <Esc>
 
 " excaping brackets etc with Ctrl-j
 :inoremap <C-j> <Esc>/[)}"'\]>]<CR>:nohl<CR>a
