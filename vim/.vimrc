@@ -276,12 +276,29 @@ call plug#end()
     " let g:indentLine_setColors = 0
 
 " YoucCompleteMe config
+let g:ycm_global_ycm_extra_conf = '~/.vim/installed-plugins/youcompleteme/.ycm_extra_conf.py'
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 set completeopt-=preview " popup overrides preview so this might be redundant
 set completeopt+=popup
 let g:ycm_auto_hover = ''
 nnoremap <leader>D <plug>(YCMHover)
+let g:ycm_filetype_blacklist = {
+      \ 'tagbar': 1,
+      \ 'notes': 1,
+      \ 'markdown': 1,
+      \ 'mkd': 1,
+      \ 'netrw': 1,
+      \ 'unite': 1,
+      \ 'text': 1,
+      \ 'vimwiki': 1,
+      \ 'pandoc': 1,
+      \ 'infolog': 1,
+      \ 'leaderf': 1,
+      \ 'mail': 1,
+      \ 'mom': 1,
+      \ 'nroff': 1,
+      \}
 
 " VimWiki config
 nmap <Nop> <Plug>VimwikiRemoveHeaderLevel
@@ -331,8 +348,9 @@ nnoremap <leader>G :Goyo<cr>
 nnoremap <leader>L :Limelight!!<cr>
 vnoremap <leader>L :Limelight!!<cr>
 
-" YouCompleteMe config
-let g:ycm_global_ycm_extra_conf = '~/.vim/installed-plugins/youcompleteme/.ycm_extra_conf.py'
+" vim-fugitive conf
+" make 0G the default for full screen behavior
+cnoreabbrev <expr> G ((getcmdtype() is# ':' && getcmdline() is# 'G')?('0G'):('G'))
 
 " Python Mode hotkeys
 nnoremap <leader>pal :PymodeLintAuto<cr>
