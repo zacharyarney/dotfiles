@@ -51,7 +51,7 @@ export FZF_DEFAULT_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat
 ########## ZSH/TERM ##########
 
 # Default editor
-export EDITOR=vim
+export VISUAL=vi
 autoload -U colors && colors
 # Custom prompt
 #             %F{2} for green

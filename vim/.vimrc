@@ -1,7 +1,58 @@
 set nocompatible
+runtime macros/matchit.vim
+set nopaste
+set autoread
+set nowrap
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set smarttab
+set autoindent
+set smartindent
+set hidden
+set belloff=all
+set smoothscroll
+set complete-=i
+set ruler
+set laststatus=2
+set scrolloff=5
+set sidescrolloff=5
+set display+=lastline
+set mouse=a
+set bs=indent,eol,start
+set hlsearch
+set incsearch
+set wildmenu
+set history=1000
+set tabpagemax=50
+set sessionoptions-=options " prevents plugins etc from overriding .vimrc
+set updatetime=250
+set timeout
+set ttimeout
+set timeoutlen=2000
+set ttimeoutlen=100
 
-" <leader>HOTKEYS
-let mapleader = " "
+" Folding
+set foldmethod=syntax
+set foldnestmax=10
+set nofoldenable
+" set foldlevel=2
+
+" Line numbers
+" set number
+" line numbers and autotoggle on buffer focus
+" set number relativenumber
+" augroup numbertoggle
+"   autocmd!
+"   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+"   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+" augroup END
+
+
+" =================
+" === FUNCTIONS ===
+" =================
 
 function WordProcessorMode()
     " movement changes
@@ -26,56 +77,34 @@ function Scratch()
     setlocal bufhidden=hide
 endfunction
 
-runtime macros/matchit.vim
-set nopaste
-set autoread
 
-" set number
-" line numbers and autotoggle on buffer focus
-" set number relativenumber
-" augroup numbertoggle
-"   autocmd!
-"   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-"   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-" augroup END
+" =======================
+" === <leader>HOTKEYS ===
+" =======================
 
-set nowrap
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-set smarttab
-set autoindent
-set smartindent
-set hidden
-set belloff=all
-set smoothscroll
+let mapleader = " "
+" Word Processor Mode
+nnoremap <leader>wp :call WordProcessorMode()<cr>
+" Create new scratch buffer
+nnoremap <leader>ns :call Scratch()<cr>
+" Next buffer
+nnoremap <leader>l :bnext<cr>
+" Previous buffer
+nnoremap <leader>h :bprevious<cr>
 
-" Folding
-set foldmethod=syntax
-set foldnestmax=10
-set nofoldenable
-" set foldlevel=2
 
-" SHIFT-TAB functionality
-" for command mode
-nnoremap <S-Tab> <<
-" for insert mode
-inoremap <S-Tab> <C-d>
-set complete-=i
+" ==============
+" === REMAPS ===
+" ==============
 
-    " Bracket handling
-    " noremap ( ()<Esc>i
-    " noremap [ []<Esc>i
-    " noremap { {}<Esc>i
-    " inoremap < <><Esc>i
-    " inoremap ' ''<Esc>i
-    " inoremap " ""<Esc>i
-    " bracket enter
 inoremap (<CR> (<CR>)<Esc>O
 inoremap [<CR> [<CR>]<Esc>O
 inoremap {<CR> {<CR>}<Esc>O
     " inoremap <<CR> <<CR>><Esc>O
+
+"Remaps Esc to 'fd' in insert mode
+    " inoremap fd <Esc>
+
 " excaping brackets etc with Ctrl-j
 :inoremap <C-j> <Esc>/[)}"'\]>]<CR>:nohl<CR>a
 " add brackets etc around highlighted text with \ leader
@@ -86,18 +115,6 @@ inoremap {<CR> {<CR>}<Esc>O
 :vnoremap \' <Esc>`>a'<Esc>`<i'<Esc>
 :vnoremap \" <Esc>`>a"<Esc>`<i"<Esc>
 
-set ruler
-set laststatus=2
-set scrolloff=5
-set sidescrolloff=5
-set display+=lastline
-set mouse=a
-set bs=indent,eol,start
-set hlsearch
-set incsearch
-set wildmenu
-set history=1000
-set tabpagemax=50
 autocmd InsertEnter * set cul
 autocmd InsertLeave * set nocul
 " clipboard yank compatibility for OSX/Linux to be safe I guess
@@ -105,15 +122,6 @@ if system('uname -s') == "Darwin\n"
   set clipboard=unnamed "OSX
 else
   set clipboard=unnamedplus "Linux
-endif
-
-set sessionoptions-=options " prevents plugins etc from overriding .vimrc
-set updatetime=750
-
-" nvim wait time between keypresses for commands like 'jk'
-if !has('nvim') && &ttimeoutlen == -1
-  set ttimeout
-  set ttimeoutlen=100
 endif
 
 if v:version > 703 || v:version == 703 && has("patch541")
@@ -130,48 +138,35 @@ augroup skeletons
   autocmd BufNewFile *.* silent! execute '0r ~/.vim/templates/skeleton.'.expand("<afile>:e")
 augroup END
 
-
 " Language specific tabs
 filetype plugin indent on " add FileType files to .vim/after/ftplugin/ directory
 
-" autocmd FileType python setlocal shiftwidth=4 softtabstop=4 expandtab
-" autocmd FileType c setlocal shiftwidth=4 softtabstop=4 expandtab
-" autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 expandtab
-" autocmd FileType html setlocal shiftwidth=2 softtabstop=2 expandtab
-" autocmd FileType css setlocal shiftwidth=2 softtabstop=2 expandtab
 
-
+" ==============
+" === COLORS ===
+" ==============
 syntax enable
-
-"Remaps Esc to 'fd' in insert mode
-" inoremap fd <Esc>
-
 " for vim 7
 set t_Co=256
-
 " for vim 8
 " !! THIS BREAKS NEOVIM IN OSX TERMINAL APP !!
 " if has("termguicolors")
 "     set termguicolors
 " endif
+set noshowmode
 
+" Colorscheme obviously
+let g:seoul256_background = 239
+colorscheme darkMentor
 " Lightline config
 let g:lightline = {
     \ 'colorscheme': 'mentor',
     \ }
-set noshowmode
-
-" Colorscheme obviously
-augroup Nord
-    autocmd!
-    autocmd ColorScheme nord highlight CursorLineNr guifg=#E5E9F0 ctermfg=7
-augroup end
-let g:nord_italic = 1
-let g:nord_comment_brightness = 20
-colorscheme darkMentor
 
 
-" ----- VIM-PLUG SECTION -----
+" ========================
+" === VIM-PLUG SECTION ===
+" ========================
 
 " vim-plug auto install
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -182,7 +177,6 @@ endif
 
 " Plugins go between these begin and end calls
 call plug#begin('~/.vim/installed-plugins')
-
 " File linking and project structure for creative writing
 Plug 'vimwiki/vimwiki'
 " Writing tools
@@ -200,86 +194,74 @@ Plug 'preservim/vim-wordy'
 Plug 'preservim/vim-wordchipper'
 " Distraction-free writing
 Plug 'junegunn/goyo.vim'
-
+Plug 'junegunn/limelight.vim'
 " Autocomplete 
     " If ever need to reinstall YCM, run following commands after to compile
     " cd ~/.vim/installed-plugins/youcompleteme
     " ./install.py --all
     " ./install.py --clang-completer
-" Plug 'valloric/youcompleteme'
-
+Plug 'valloric/youcompleteme'
 " Python mode better syntax highlighting for python
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
-
 " Better syntax highlighting and other improvements for JS
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'jparise/vim-graphql'
-" Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-" Plug 'othree/es.next.syntax.vim'
-" Plug 'othree/yajs.vim'
-" Plug 'mxw/vim-jsx'
-
+    " Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+    " Plug 'othree/es.next.syntax.vim'
+    " Plug 'othree/yajs.vim'
+    " Plug 'mxw/vim-jsx'
 " Prettier for web dev related formatting -- post global install (yarn install | npm install)
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-
 " Better syntax highlighting etc. for HTML5
 Plug 'othree/html5.vim'
-
 " clang-format, a formatter for C, C++, Obj-C, Java, JS, TS and ProtoBuf
 Plug 'rhysd/vim-clang-format'
-
 " Better statusline
 Plug 'itchyny/lightline.vim'
-
+" Seoul256 lightline theme
+Plug 'shinchu/lightline-seoul256.vim'
 " Git diff in gutter
 Plug 'airblade/vim-gitgutter'
-
 " Git tools within vim
 Plug 'tpope/vim-fugitive'
-
 " Vinegar file browser
 Plug 'tpope/vim-vinegar'
-
 " Vim Surround paren, quote, tag handling
 Plug 'tpope/vim-surround'
-
 " Easy comments
 Plug 'tpope/vim-commentary'
-
 " Repeat functionality for tpope plugins
 Plug 'tpope/vim-repeat'
-
 " Run compilers and executables without leaving vim
 Plug 'tpope/vim-dispatch'
-
 " Vim Markdown support
 " tabularize is required for table formatting
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-
 " fzf Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-
 " indentation lines
 Plug 'Yggdroot/indentLine'
-
 " tmux pane nav integration
 Plug 'christoomey/vim-tmux-navigator'
 " Nord theme
     " Plug 'arcticicestudio/nord-vim'
-
 " Oceanic Next theme
     " Plug 'mhartington/oceanic-next'
-
 call plug#end()
 
-" ----- end vim-plug section -----
+
+" ============================
+" === END VIM-PLUG SECTION ===
+" ============================
 
 
-" ----- plugin config -----
+" =====================
+" === PLUGIN CONFIG ===
+" =====================
 
     " Potential fix for random line in python files with Python Mode
     " let g:pymode_options_colorcolumn = 0
@@ -293,11 +275,16 @@ call plug#end()
     " indentLine match colorscheme
     " let g:indentLine_setColors = 0
 
+" YoucCompleteMe config
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+set completeopt-=preview " popup overrides preview so this might be redundant
+set completeopt+=popup
+let g:ycm_auto_hover = ''
+nnoremap <leader>D <plug>(YCMHover)
+
 " VimWiki config
 nmap <Nop> <Plug>VimwikiRemoveHeaderLevel
-" let g:vimwiki_list = [
-"     \{'path': '~/projects/work/notes/', 'name': 'Notes',  'syntax': 'markdown', 'ext': '.md', 'index': 'index'},
-" \]
 let g:vimwiki_list = [
     \{'path': '~/projects/work/notes/', 'name': 'Notes',  'syntax': 'markdown', 'ext': '.md', 'index': 'index'},
     \{'path': '~/projects/work/palo_alto/', 'name': 'Palo Alto',  'syntax': 'markdown', 'ext': '.md', 'index': 'index'},
@@ -335,52 +322,20 @@ augroup END
 let g:lexical#spell_key = '<leader>s'
 let g:lexical#dictionary_key = '<leader>k'
 " Thesaurus not configured yet
-" let g:lexical#thesaurus_key = '<leader>t' 
+    " let g:lexical#thesaurus_key = '<leader>t' 
 
 " Goyo config
-nnoremap <leader>g :Goyo<cr>
-" autocmd FileType markdown,mkd Goyo 80
-" autocmd FileType text         Goyo 80
-" autocmd FileType vimwiki      Goyo 80
+nnoremap <leader>G :Goyo<cr>
 
-" autocmd BufEnter *.md  :Goyo 80
-" autocmd BufEnter *.txt :Goyo 80
-
-" function! s:goyo_enter()
-"   let b:quitting = 0
-"   let b:quitting_bang = 0
-"   autocmd QuitPre <buffer> let b:quitting = 1
-"   cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
-" endfunction
-" 
-" function! s:goyo_leave()
-"   " Quit Vim if this is the only remaining buffer
-"   if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
-"     if b:quitting_bang
-"       qa!
-"     else
-"       qa
-"     endif
-"   endif
-" endfunction
-" 
-" autocmd! User GoyoEnter call <SID>goyo_enter()
-" autocmd! User GoyoLeave call <SID>goyo_leave()
+" Limelight config
+nnoremap <leader>L :Limelight!!<cr>
+vnoremap <leader>L :Limelight!!<cr>
 
 " YouCompleteMe config
 let g:ycm_global_ycm_extra_conf = '~/.vim/installed-plugins/youcompleteme/.ycm_extra_conf.py'
 
-" NeoVim terminal mode
-nnoremap <leader>T :terminal<cr>
-
 " Python Mode hotkeys
 nnoremap <leader>pal :PymodeLintAuto<cr>
-
-" Word Processor Mode
-nnoremap <leader>wp :call WordProcessorMode()<cr>
-
-" Create new scratch buffer
-nnoremap <leader>ns :call Scratch()<cr>
 
 " clang-format config
 let g:clang_format#style_options = {
@@ -436,3 +391,30 @@ command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --colo
 "   \ 'marker':  ['fg', 'Keyword'],
 "   \ 'spinner': ['fg', 'Label'],
 "   \ 'header':  ['fg', 'Comment'] }
+
+" ==============
+" === CRUMBS ===
+" ==============
+
+" SHIFT-TAB functionality
+" for command mode
+" nnoremap <S-Tab> <<
+" for insert mode
+" inoremap <S-Tab> <C-d>
+
+" Bracket handling
+" noremap ( ()<Esc>i
+" noremap [ []<Esc>i
+" noremap { {}<Esc>i
+" inoremap < <><Esc>i
+" inoremap ' ''<Esc>i
+" inoremap " ""<Esc>i
+" bracket enter
+
+" Nord config
+" augroup Nord
+"     autocmd!
+"     autocmd ColorScheme nord highlight CursorLineNr guifg=#E5E9F0 ctermfg=7
+" augroup end
+" let g:nord_italic = 1
+" let g:nord_comment_brightness = 20
