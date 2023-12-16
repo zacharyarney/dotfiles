@@ -232,6 +232,8 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-surround'
 " Easy comments
 Plug 'tpope/vim-commentary'
+" Bracket maps for commont normal mode commands
+Plug 'tpope/vim-unimpaired'
 " Repeat functionality for tpope plugins
 Plug 'tpope/vim-repeat'
 " Run compilers and executables without leaving vim
