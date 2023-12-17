@@ -177,6 +177,8 @@ endif
 
 " Plugins go between these begin and end calls
 call plug#begin('~/.vim/installed-plugins')
+" GitHub Copilot AI
+Plug 'github/copilot.vim'
 " File linking and project structure for creative writing
 Plug 'vimwiki/vimwiki'
 " Writing tools
