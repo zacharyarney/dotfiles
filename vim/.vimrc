@@ -33,6 +33,11 @@ set ttimeout
 set timeoutlen=2000
 set ttimeoutlen=100
 
+" Temp file locations
+set backupdir=~/.vim/backup/,/var/tmp/,/tmp//
+set directory=~/.vim/swap/,/var/tmp/,/tmp//
+set undodir=~/.vim/undo/,/var/tmp/,/tmp//
+
 " Folding
 set foldmethod=syntax
 set foldnestmax=10
