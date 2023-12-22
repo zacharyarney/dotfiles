@@ -1,6 +1,7 @@
 set nocompatible
 filetype plugin on
 runtime macros/matchit.vim
+let mapleader = " "
 set nopaste
 set autoread
 set number
@@ -12,6 +13,11 @@ set autoindent
 set smartindent
 set surround
 set NERDTree
+" NERDTree commands
+nnoremap <leader>nn :NERDTree<CR>
+vnoremap <leader>nn :NERDTree<CR>
+nnoremap <leader>nt :NERDTreeToggle<CR>
+vnoremap <leader>nt :NERDTreeToggle<CR>
 " SHIFT-TAB functionality
 " for command mode
 nnoremap <S-Tab> <<
