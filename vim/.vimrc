@@ -45,7 +45,7 @@ set nofoldenable
 " set foldlevel=2
 
 " Line numbers
-" set number
+set number
 " line numbers and autotoggle on buffer focus
 " set number relativenumber
 " augroup numbertoggle
@@ -351,6 +351,7 @@ let g:lexical#dictionary_key = '<leader>k'
     " let g:lexical#thesaurus_key = '<leader>t' 
 
 " Goyo config
+let g:goyo_linenr = 0
 nnoremap <leader>G :Goyo<cr>
 
 " Limelight config
