@@ -25,7 +25,7 @@
 " red             #af5f5f    rgb(175, 95, 95)      131    1
 " orange          #ff8700    rgb(255, 135, 0)      208    9
 " ocre            #87875f    rgb(135, 135, 95)     101    3
-" yellow          #ffd75f    rgb(255, 215, 95)     221    11
+" yellow          #ffffaf    rgb(255, 215, 95)     229    11
 
 hi clear
 
@@ -96,7 +96,7 @@ if ($TERM =~ '256' || &t_Co >= 256) || has("gui_running")
   hi VertSplit        ctermbg=236  ctermfg=236  guibg=#303030 guifg=#303030 cterm=NONE           gui=NONE
   hi WildMenu         ctermbg=110  ctermfg=234  guibg=#8fafd7 guifg=#1c1c1c cterm=NONE           gui=NONE
 
-  hi Function         ctermbg=NONE ctermfg=221  guibg=NONE    guifg=#ffd75f cterm=NONE           gui=NONE
+  hi Function         ctermbg=NONE ctermfg=229  guibg=NONE    guifg=#ffffaf cterm=NONE           gui=NONE
   hi SpecialKey       ctermbg=NONE ctermfg=240  guibg=NONE    guifg=#585858 cterm=NONE           gui=NONE
   hi Title            ctermbg=NONE ctermfg=231  guibg=NONE    guifg=#ffffff cterm=NONE           gui=NONE
 
@@ -106,7 +106,7 @@ if ($TERM =~ '256' || &t_Co >= 256) || has("gui_running")
   hi DiffText         ctermbg=234  ctermfg=208  guibg=#1c1c1c guifg=#ff8700 cterm=reverse        gui=reverse
 
   hi IncSearch        ctermbg=131  ctermfg=234  guibg=#af5f5f guifg=#1c1c1c cterm=NONE           gui=NONE
-  hi Search           ctermbg=221  ctermfg=234  guibg=#ffd75f guifg=#1c1c1c cterm=NONE           gui=NONE
+  hi Search           ctermbg=229  ctermfg=234  guibg=#ffffaf guifg=#1c1c1c cterm=NONE           gui=NONE
 
   hi Directory        ctermbg=NONE ctermfg=73   guibg=NONE    guifg=#5fafaf cterm=NONE           gui=NONE
 
