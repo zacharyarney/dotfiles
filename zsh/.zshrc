@@ -41,11 +41,20 @@ alias gcc='gcc-13'
 alias cc='gcc-13'
 alias g++='g++-13'
 alias c++='c++-13'
-#
+# bat
+alias bat='bat --theme=base16'
+
 ########## FZF ##########
 # Using highlight (http://www.andre-simon.de/doku/highlight/en/highlight.html)
-export FZF_DEFAULT_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
-# export BAT_THEME="base16"
+# export FZF_DEFAULT_COMMAND="find -L * -path '*/\.*' -prune -o -type f -print -o -type l -print 2> /dev/null"
+# export FZF_DEFAULT_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
+export FZF_CTRL_T_COMMAND="rg --files --hidden --follow --glob '!.git'"
+export FZF_DEFAULT_OPTS="--preview='bat --color=always {}' --height=100% --bind shift-up:preview-page-up,shift-down:preview-page-down"
+export FZF_CTRL_T_OPTS="--preview='bat --color=always {}' --height=100% --bind shift-up:preview-page-up,shift-down:preview-page-down"
+# colors
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --color=fg:250,bg:233,hl:67 --color=fg+:255,bg+:236,hl+:110 --color=info:101,prompt:131,pointer:73 --color=marker:208,spinner:250,header:66'
+export BAT_THEME="base16"
 # export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 
 ########## ZSH/TERM ##########
@@ -53,6 +62,7 @@ export FZF_DEFAULT_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat
 # Default editor
 export VISUAL=vi
 autoload -U colors && colors
+export COLORTERM="truecolor"
 # Custom prompt
 #             %F{2} for green
 #             %F{10} for light green
