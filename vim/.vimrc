@@ -83,15 +83,25 @@ function Scratch()
 endfunction
 
 
+" ================
+" === COMMANDS ===
+" ================
+
+" Word Processor Mode
+command WordProcessorMode call WordProcessorMode()
+" Create new scratch buffer
+command Scratch call Scratch()
+
+
 " =======================
 " === <leader>HOTKEYS ===
 " =======================
 
 let mapleader = " "
 " Word Processor Mode
-nnoremap <leader>wp :call WordProcessorMode()<cr>
+nnoremap <leader>wp :WordProcessorMode<cr>
 " Create new scratch buffer
-nnoremap <leader>ns :call Scratch()<cr>
+nnoremap <leader>ns :Scratch<cr>
 " Next buffer
 nnoremap <leader>l :bnext<cr>
 " Previous buffer
