@@ -23,23 +23,25 @@ eval "$(pyenv init --path)"
 ########## ALIASES ##########
 
 # shows hidden files, distinguishes types and adds color to ls command results
-alias ls="ls -AFG"
+alias ls='ls -AFG'
 # Long listing format with ./ and ../ so we can view permissions of current dir
-alias ll="ls -al"
+alias ll='ls -al'
+# Open a scratch buffer in vim (ns short for "new scratch" same as vim shortcut)
+alias ns='vim "+:call Scratch()"'
 # Adds color to grep command results
-alias grep="grep --color"
+alias grep='grep --color'
 # Shows hidden files and adds color to tree command
-alias tree="tree -aC" #use -d to list only directories
+alias tree='tree -aC' #use -d to list only directories
 # Shows hidden files in ripgrep
-alias rg="rg --hidden"
+alias rg='rg --hidden'
 # Shortcut for ranger
-alias ra="ranger"
+alias ra=ranger
 # Vim keybindings for lynx
-alias lynx="lynx -accept_all_cookies -editor=vim -use_mouse -vikeys"
+alias lynx='lynx -accept_all_cookies -editor=vim -use_mouse -vikeys'
 # mutt -> neomutt
-alias mutt="neomutt"
+alias mutt=neomutt
 # weather
-alias weather="curl wttr.in/San+Francisco"
+alias weather='curl wttr.in/San+Francisco'
 # gcc
 alias gcc='gcc-13'
 alias cc='gcc-13'
