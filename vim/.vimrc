@@ -106,7 +106,9 @@ nnoremap <leader>ns :Scratch<cr>
 nnoremap <leader>l :bnext<cr>
 " Previous buffer
 nnoremap <leader>h :bprevious<cr>
-
+" Copilot
+nnoremap <leader>cpe :Copilot enable<cr>
+nnoremap <leader>cpd :Copilot disable<cr>
 
 " ==============
 " === REMAPS ===
