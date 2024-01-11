@@ -15,6 +15,8 @@ for each relevant package/directory in the root. Trailing slash omitted.
 
 Currently:
 ```
+$ stow bash
+$ stow bin
 $ stow emacs
 $ stow jetbrains
 $ stow ranger
