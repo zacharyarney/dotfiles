@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+GH_RAW="https://raw.githubusercontent.com/"
+URL_PATH="$1"
+DEST="$2"
+
+`curl $GH_RAW$URL_PATH >> $DEST`
+

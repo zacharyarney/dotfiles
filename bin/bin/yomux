@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+tmux new -d -s yo -n shell \; \
+    new-window -n home 'cd; zsh -i' \; \
+    new-window -n spotify 'cd ; spotify_player ; zsh -i' \; \
+    select-window -t shell \; \
+    attach -t yo \;

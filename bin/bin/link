@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+if command -v stow &> /dev/null
+then 
+    for d in */ ; do
+        echo ${d%/}
+    done
+else
+    echo "GNU stow must be installed."
+fi

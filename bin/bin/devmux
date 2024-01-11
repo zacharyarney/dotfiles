@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+tmux new -d -s dev -n vim 'vim' \; \
+    new-window -n shell \; \
+    new-window -n home 'cd; zsh -i' \; \
+    select-window -t vim \; \
+    attach -t dev \;
