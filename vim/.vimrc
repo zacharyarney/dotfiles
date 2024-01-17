@@ -174,7 +174,7 @@ set noshowmode
 
 " Colorscheme obviously
 let g:seoul256_background = 239
-colorscheme darkMentor
+colorscheme mentor
 " Lightline config
 let g:lightline = {
     \ 'colorscheme': 'mentor',
@@ -276,54 +276,12 @@ Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 
-" ============================
-" === END VIM-PLUG SECTION ===
-" ============================
-
-
 " =====================
 " === PLUGIN CONFIG ===
 " =====================
 
-    " Potential fix for random line in python files with Python Mode
-    " let g:pymode_options_colorcolumn = 0
-
-    " Potential fix for Python Mode python source
-    " let g:pymode_python = 'python3'
-
-    " enable all syntax highlighting features for python
-    " let g:python_highlight_all = 1
-
-    " indentLine match colorscheme
-    " let g:indentLine_setColors = 0
-
 " Copilot config
 let g:copilot_assume_mapped = 1
-
-" YoucCompleteMe config
-    " let g:ycm_global_ycm_extra_conf = '~/.vim/installed-plugins/youcompleteme/.ycm_extra_conf.py'
-    " let g:ycm_autoclose_preview_window_after_completion = 1
-    " let g:ycm_autoclose_preview_window_after_insertion = 1
-    " set completeopt-=preview " popup overrides preview so this might be redundant
-    " set completeopt+=popup
-    " let g:ycm_auto_hover = ''
-    " nnoremap <leader>D <plug>(YCMHover)
-    " let g:ycm_filetype_blacklist = {
-    "       \ 'tagbar': 1,
-    "       \ 'notes': 1,
-    "       \ 'markdown': 1,
-    "       \ 'mkd': 1,
-    "       \ 'netrw': 1,
-    "       \ 'unite': 1,
-    "       \ 'text': 1,
-    "       \ 'vimwiki': 1,
-    "       \ 'pandoc': 1,
-    "       \ 'infolog': 1,
-    "       \ 'leaderf': 1,
-    "       \ 'mail': 1,
-    "       \ 'mom': 1,
-    "       \ 'nroff': 1,
-    "       \}
 
 " VimWiki config
 nmap <Nop> <Plug>VimwikiRemoveHeaderLevel
@@ -468,3 +426,41 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 " augroup end
 " let g:nord_italic = 1
 " let g:nord_comment_brightness = 20
+
+" YoucCompleteMe config
+    " let g:ycm_global_ycm_extra_conf = '~/.vim/installed-plugins/youcompleteme/.ycm_extra_conf.py'
+    " let g:ycm_autoclose_preview_window_after_completion = 1
+    " let g:ycm_autoclose_preview_window_after_insertion = 1
+    " set completeopt-=preview " popup overrides preview so this might be redundant
+    " set completeopt+=popup
+    " let g:ycm_auto_hover = ''
+    " nnoremap <leader>D <plug>(YCMHover)
+    " let g:ycm_filetype_blacklist = {
+    "       \ 'tagbar': 1,
+    "       \ 'notes': 1,
+    "       \ 'markdown': 1,
+    "       \ 'mkd': 1,
+    "       \ 'netrw': 1,
+    "       \ 'unite': 1,
+    "       \ 'text': 1,
+    "       \ 'vimwiki': 1,
+    "       \ 'pandoc': 1,
+    "       \ 'infolog': 1,
+    "       \ 'leaderf': 1,
+    "       \ 'mail': 1,
+    "       \ 'mom': 1,
+    "       \ 'nroff': 1,
+    "       \}
+
+    " Potential fix for random line in python files with Python Mode
+    " let g:pymode_options_colorcolumn = 0
+
+    " Potential fix for Python Mode python source
+    " let g:pymode_python = 'python3'
+
+    " enable all syntax highlighting features for python
+    " let g:python_highlight_all = 1
+
+    " indentLine match colorscheme
+    " let g:indentLine_setColors = 0
+
