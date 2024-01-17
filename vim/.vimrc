@@ -217,9 +217,8 @@ Plug 'junegunn/limelight.vim'
 " Autocomplete 
     " If ever need to reinstall YCM, run following commands after to compile
     " cd ~/.vim/installed-plugins/youcompleteme
-    " ./install.py --all
-    " ./install.py --clang-completer
-Plug 'valloric/youcompleteme'
+    " ./install.py --ts-completer
+" Plug 'valloric/youcompleteme'
 " Syntax highlighting for scripts via the shebang line
 Plug 'vitalk/vim-shebang'
 " Python mode better syntax highlighting for python
@@ -298,30 +297,33 @@ call plug#end()
     " indentLine match colorscheme
     " let g:indentLine_setColors = 0
 
+" Copilot config
+let g:copilot_assume_mapped = 1
+
 " YoucCompleteMe config
-let g:ycm_global_ycm_extra_conf = '~/.vim/installed-plugins/youcompleteme/.ycm_extra_conf.py'
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-set completeopt-=preview " popup overrides preview so this might be redundant
-set completeopt+=popup
-let g:ycm_auto_hover = ''
-nnoremap <leader>D <plug>(YCMHover)
-let g:ycm_filetype_blacklist = {
-      \ 'tagbar': 1,
-      \ 'notes': 1,
-      \ 'markdown': 1,
-      \ 'mkd': 1,
-      \ 'netrw': 1,
-      \ 'unite': 1,
-      \ 'text': 1,
-      \ 'vimwiki': 1,
-      \ 'pandoc': 1,
-      \ 'infolog': 1,
-      \ 'leaderf': 1,
-      \ 'mail': 1,
-      \ 'mom': 1,
-      \ 'nroff': 1,
-      \}
+    " let g:ycm_global_ycm_extra_conf = '~/.vim/installed-plugins/youcompleteme/.ycm_extra_conf.py'
+    " let g:ycm_autoclose_preview_window_after_completion = 1
+    " let g:ycm_autoclose_preview_window_after_insertion = 1
+    " set completeopt-=preview " popup overrides preview so this might be redundant
+    " set completeopt+=popup
+    " let g:ycm_auto_hover = ''
+    " nnoremap <leader>D <plug>(YCMHover)
+    " let g:ycm_filetype_blacklist = {
+    "       \ 'tagbar': 1,
+    "       \ 'notes': 1,
+    "       \ 'markdown': 1,
+    "       \ 'mkd': 1,
+    "       \ 'netrw': 1,
+    "       \ 'unite': 1,
+    "       \ 'text': 1,
+    "       \ 'vimwiki': 1,
+    "       \ 'pandoc': 1,
+    "       \ 'infolog': 1,
+    "       \ 'leaderf': 1,
+    "       \ 'mail': 1,
+    "       \ 'mom': 1,
+    "       \ 'nroff': 1,
+    "       \}
 
 " VimWiki config
 nmap <Nop> <Plug>VimwikiRemoveHeaderLevel
