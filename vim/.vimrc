@@ -42,17 +42,12 @@ set undodir=~/.vim/undo/,/var/tmp/,/tmp//
 set foldmethod=syntax
 set foldnestmax=10
 set nofoldenable
-" set foldlevel=2
 
 " Line numbers
 set number
-" line numbers and autotoggle on buffer focus
-" set number relativenumber
-" augroup numbertoggle
-"   autocmd!
-"   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-"   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-" augroup END
+
+" Save on buffer leave
+set autowriteall
 
 
 " =================
@@ -136,23 +131,23 @@ autocmd InsertEnter * set cul
 autocmd InsertLeave * set nocul
 " clipboard yank compatibility for OSX/Linux to be safe I guess
 if system('uname -s') == "Darwin\n"
-  set clipboard=unnamed "OSX
+    set clipboard=unnamed "OSX
 else
-  set clipboard=unnamedplus "Linux
+    set clipboard=unnamedplus "Linux
 endif
 
 if v:version > 703 || v:version == 703 && has("patch541")
-  set formatoptions+=j " Delete comment character when joining commented lines
+    set formatoptions+=j " Delete comment character when joining commented lines
 endif
 
 if has('path_extra')
-  setglobal tags-=./tags tags-=./tags; tags^=./tags;
+    setglobal tags-=./tags tags-=./tags; tags^=./tags;
 endif
 
 " Templates for filetypes included in ~/.vim/templates/skeleton.*
 augroup skeletons
-  au!
-  autocmd BufNewFile *.* silent! execute '0r ~/.vim/templates/skeleton.'.expand("<afile>:e")
+    au!
+    autocmd BufNewFile *.* silent! execute '0r ~/.vim/templates/skeleton.'.expand("<afile>:e")
 augroup END
 
 " Language specific tabs
@@ -187,9 +182,9 @@ let g:lightline = {
 
 " vim-plug auto install
 if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 " Plugins go between these begin and end calls
@@ -282,6 +277,11 @@ call plug#end()
 
 " Copilot config
 let g:copilot_assume_mapped = 1
+augroup copilot
+    autocmd!
+    autocmd FileType markdown,mkd,mom,nroff,text,vimwiki,mail
+                \ let b:copilot_enabled = 0
+augroup END
 
 " VimWiki config
 nmap <Nop> <Plug>VimwikiRemoveHeaderLevel
@@ -295,27 +295,27 @@ let g:vimwiki_global_ext = 0 " only treat files in vimwiki directory list as par
 
 " Pencil config
 augroup pencil
-  autocmd!
-  autocmd FileType markdown,mkd call pencil#init({'wrap': 'soft'})
-                            \ | call lexical#init()
-                            \ | call litecorrect#init()
-                            \ | call textobj#sentence#init()
-  autocmd FileType mom,nroff    call pencil#init({'wrap': 'soft'})
-                            \ | call lexical#init()
-                            \ | call litecorrect#init()
-                            \ | call textobj#sentence#init()
-  autocmd FileType text         call pencil#init({'wrap': 'soft'})
-                            \ | call lexical#init()
-                            \ | call litecorrect#init()
-                            \ | call textobj#sentence#init()
-  autocmd FileType vimwiki      call pencil#init({'wrap': 'soft'})
-                            \ | call lexical#init()
-                            \ | call litecorrect#init()
-                            \ | call textobj#sentence#init()
-  autocmd FileType mail         call pencil#init({'wrap': 'soft'})
-                            \ | call lexical#init()
-                            \ | call litecorrect#init()
-                            \ | call textobj#sentence#init()
+    autocmd!
+    autocmd FileType markdown,mkd call pencil#init({'wrap': 'soft'})
+                              \ | call lexical#init()
+                              \ | call litecorrect#init()
+                              \ | call textobj#sentence#init()
+    autocmd FileType mom,nroff    call pencil#init({'wrap': 'soft'})
+                              \ | call lexical#init()
+                              \ | call litecorrect#init()
+                              \ | call textobj#sentence#init()
+    autocmd FileType text         call pencil#init({'wrap': 'soft'})
+                              \ | call lexical#init()
+                              \ | call litecorrect#init()
+                              \ | call textobj#sentence#init()
+    autocmd FileType vimwiki      call pencil#init({'wrap': 'soft'})
+                              \ | call lexical#init()
+                              \ | call litecorrect#init()
+                              \ | call textobj#sentence#init()
+    autocmd FileType mail         call pencil#init({'wrap': 'soft'})
+                              \ | call lexical#init()
+                              \ | call litecorrect#init()
+                              \ | call textobj#sentence#init()
 augroup END
 
 " Lexical config
@@ -380,19 +380,19 @@ nnoremap <leader>hh :History<cr>
 " Customize fzf colors to match your color scheme
 " - fzf#wrap translates this to a set of `--color` options
 let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
+  \ { 'fg':      ['fg', 'Normal'],
+    \ 'bg':      ['bg', 'Normal'],
+    \ 'hl':      ['fg', 'Comment'],
+    \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+    \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+    \ 'hl+':     ['fg', 'Statement'],
+    \ 'info':    ['fg', 'PreProc'],
+    \ 'border':  ['fg', 'Ignore'],
+    \ 'prompt':  ['fg', 'Conditional'],
+    \ 'pointer': ['fg', 'Exception'],
+    \ 'marker':  ['fg', 'Keyword'],
+    \ 'spinner': ['fg', 'Label'],
+    \ 'header':  ['fg', 'Comment'] }
 " Enable per-command history
 " - History files will be stored in the specified directory
 " - When set, CTRL-N and CTRL-P will be bound to 'next-history' and
