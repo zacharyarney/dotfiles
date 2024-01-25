@@ -23,6 +23,8 @@ set mouse=a
 set bs=indent,eol,start
 set hlsearch
 set incsearch
+set ignorecase
+set smartcase
 set wildmenu
 set history=1000
 set tabpagemax=50
@@ -108,6 +110,14 @@ nnoremap <leader>cpd :Copilot disable<cr>
 " ==============
 " === REMAPS ===
 " ==============
+
+" Keeps cursor centered when scrolling
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+
+" Remaps n and N to keep cursor centered when searching
+nnoremap n nzz
+nnoremap N Nzz
 
 inoremap (<CR> (<CR>)<Esc>O
 inoremap [<CR> [<CR>]<Esc>O
