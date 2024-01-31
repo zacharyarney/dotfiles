@@ -23,8 +23,10 @@ eval "$(pyenv init --path)"
 
 ########## ALIASES ##########
 
+# adds color and formatting to ls command results
+alias ls='ls -FG'
 # shows hidden files, distinguishes types and adds color to ls command results
-alias ls='ls -AFG'
+alias la='ls -AFG'
 # Long listing format with ./ and ../ so we can view permissions of current dir
 alias ll='ls -al'
 # Open a scratch buffer in vim (ns short for "new scratch" same as vim shortcut)
