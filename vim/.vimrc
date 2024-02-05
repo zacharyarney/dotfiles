@@ -389,6 +389,7 @@ nnoremap <leader>hh :History<cr>
 " command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --color=never --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" '.shellescape(<q-args>), 1, <bang>0)
 " Customize fzf colors to match your color scheme
 " - fzf#wrap translates this to a set of `--color` options
+set rtp+=/usr/local/opt/fzf
 let g:fzf_colors =
   \ { 'fg':      ['fg', 'Normal'],
     \ 'bg':      ['bg', 'Normal'],
