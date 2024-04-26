@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+printf "\n"
+
+if [ "$1" == "" ]; then
+    printf "Everything is going to be okay."
+elif [ "$1" == "please" ]; then
+    printf "Everything is going to be okay. I promise!\n\n"
+    sleep 2
+    printf "Also, I love you.\n\n"
+    sleep 2
+    printf "<3"
+else
+    sleep 1
+    printf "...\n\n"
+    sleep 2
+    printf "Chill. Everything is going to be okay."
+fi
+
+printf "\n\n"
