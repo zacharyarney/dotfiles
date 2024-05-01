@@ -167,6 +167,7 @@ filetype plugin indent on " add FileType files to .vim/after/ftplugin/ directory
 " ==============
 " === COLORS ===
 " ==============
+
 syntax enable
 " for vim 7
 set t_Co=256
@@ -224,10 +225,14 @@ Plug 'junegunn/limelight.vim'
     " cd ~/.vim/installed-plugins/youcompleteme
     " ./install.py --ts-completer
 " Plug 'valloric/youcompleteme'
+" Asyncronous Lint Engine
+Plug 'dense-analysis/ale'
 " Syntax highlighting for scripts via the shebang line
 Plug 'vitalk/vim-shebang'
 " Python mode better syntax highlighting for python
-Plug 'python-mode/python-mode', { 'branch': 'develop' }
+    " Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+Plug 'vim-scripts/indentpython.vim'
+Plug 'nvie/vim-flake8'
 " Better syntax highlighting and other improvements for JS
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
@@ -347,7 +352,21 @@ vnoremap <leader>L :Limelight!!<cr>
 cnoreabbrev <expr> G ((getcmdtype() is# ':' && getcmdline() is# 'G')?('0G'):('G'))
 
 " Python Mode hotkeys
-nnoremap <leader>pal :PymodeLintAuto<cr>
+    " nnoremap <leader>pal :PymodeLintAuto<cr>
+nnoremap <leader>pal :ALEFix<cr>
+
+" ALE config
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'python': ['flake8'],
+\   'go': ['go', 'golint', 'errcheck']
+\}
+
+let g:ale_fixers = {
+\   'javascript': ['prettier', 'eslint'],
+\   'python': ['autopep8'],
+\   'go': ['gofmt', 'goimports']
+\}
 
 " clang-format config
 let g:clang_format#style_options = {
