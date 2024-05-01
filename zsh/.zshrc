@@ -1,25 +1,7 @@
-########## GOPATH ##########
+source ~/.zsh_env_vars
 
-export GOPATH="$HOME/go"
-
-
-########## PATH ##########
-
-export PATH=/opt/homebrew/bin:$PATH
-export PATH=/opt/homebrew/sbin:$PATH
-export PATH=$HOME/Library/Application\ Support/JetBrains/Toolbox/scripts:$PATH
-export PATH=$HOME/.emacs.d/bin:$PATH
-export PATH=$HOME/bin:$PATH
-export PATH=$PATH:$GOPATH/bin
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 eval "$(pyenv init --path)"
-
 
 ########## ALIASES ##########
 
@@ -54,6 +36,13 @@ alias c++='c++-13'
 alias bat='bat --theme=base16'
 # spotify
 alias {spot,spotify,sp}=spotify_player
+
+
+########## NVIM ##########
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
 ########## FZF ##########
