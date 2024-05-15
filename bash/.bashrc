@@ -1,7 +1,10 @@
 ########## GOPATH ##########
+
 export GOPATH="$HOME/go"
 
+
 ########## PATH ##########
+
 export PATH=/opt/homebrew/bin:$PATH
 export PATH=/opt/homebrew/sbin:$PATH
 export PATH=$HOME/.emacs.d/bin:$PATH
@@ -18,7 +21,9 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 eval "$(pyenv init --path)"
 
+
 ########## ALIASES ##########
+
 # adds color and formatting to ls command results
 alias ls='ls -FG'
 # shows hidden files, distinguishes types and adds color to ls command results
@@ -44,12 +49,17 @@ alias gcc='gcc-13'
 alias cc='gcc-13'
 alias g++='g++-13'
 alias c++='c++-13'
-#
+# ctags
+ctags=/opt/homebrew/bin/ctags
+
+
 ########## FZF ##########
+
 # Using highlight (http://www.andre-simon.de/doku/highlight/en/highlight.html)
 export FZF_DEFAULT_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 # export BAT_THEME="base16"
 # export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+
 
 ########## ZSH/TERM ##########
 

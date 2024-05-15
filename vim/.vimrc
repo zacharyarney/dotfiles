@@ -248,6 +248,8 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'othree/html5.vim'
 " clang-format, a formatter for C, C++, Obj-C, Java, JS, TS and ProtoBuf
 Plug 'rhysd/vim-clang-format'
+" clang-complete
+Plug 'xavierd/clang_complete'
 " Better statusline
 Plug 'itchyny/lightline.vim'
 " Seoul256 lightline theme
@@ -382,6 +384,12 @@ autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 " autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
 " Toggle auto formatting:
 nmap <Leader>C :ClangFormatAutoToggle<CR>
+
+"clang-complete config
+let s:clang_library_path='/Library/Developer/CommandLineTools/usr/lib'
+if isdirectory(s:clang_library_path)
+    let g:clang_library_path=s:clang_library_path
+endif
 
 " vim-markdown config
 set conceallevel=0

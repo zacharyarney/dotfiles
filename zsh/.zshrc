@@ -8,9 +8,9 @@ eval "$(pyenv init --path)"
 # adds color and formatting to ls command results
 alias ls='ls -FG'
 # shows hidden files, distinguishes types and adds color to ls command results
-alias la='ls -AFG'
+alias la='ls -A'
 # Long listing format with ./ and ../ so we can view permissions of current dir
-alias ll='ls -al'
+alias ll='ls -lA'
 # Open a scratch buffer in vim (ns short for "new scratch" same as vim shortcut)
 alias ns='vim "+:call Scratch()" "+:call WordProcessorMode()"'
 # Adds color to grep command results
@@ -36,6 +36,8 @@ alias c++='c++-13'
 alias bat='bat --theme=base16'
 # spotify
 alias {spot,spotify,sp}=spotify_player
+# ctags
+ctags=/opt/homebrew/bin/ctags
 
 
 ########## NVIM ##########
