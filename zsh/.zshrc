@@ -3,6 +3,15 @@ source ~/.zsh_env_vars
 eval "$(rbenv init -)"
 eval "$(pyenv init --path)"
 
+
+########## BINDINGS ##########
+
+# emacs bindings for zsh
+bindkey -e
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
+
+
 ########## ALIASES ##########
 
 # adds color and formatting to ls command results
@@ -77,6 +86,21 @@ export GPG_TTY=$(tty)
 
 # source shortcuts
 # source ~/bin/shortcuts.sh
+
+
+########## BINDINGS ##########
+
+HISTSIZE=5000
+HISTFILE=~/.zsh_history
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space # ignore commands that start with a space
+setopt hist_ignore_all_dups
+setopt hist_ignore_dups
+setopt hist_save_no_dups
+setopt hist_find_no_dups
 
 
 # THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
