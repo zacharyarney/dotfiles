@@ -12,5 +12,10 @@ export PATH=$HOME/.emacs.d/bin:$PATH
 export PATH=$HOME/bin:$PATH
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/Applications/Racket\ v8.12/bin
-export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH=$HOME/.rbenv/bin:$PATH
+
+########## CDP ##########
+
+export PATH=$HOME/cdpr8/_cdp/_cdprogs:$PATH
+
 
