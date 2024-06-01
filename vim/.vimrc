@@ -271,9 +271,8 @@ Plug 'tpope/vim-repeat'
 " Run compilers and executables without leaving vim
 Plug 'tpope/vim-dispatch'
 " Vim Markdown support
-" tabularize is required for table formatting
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax' 
 " fzf Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -296,7 +295,7 @@ call plug#end()
 let g:copilot_assume_mapped = 1
 augroup copilot
     autocmd!
-    autocmd FileType markdown,mkd,mom,nroff,text,vimwiki,mail
+    autocmd FileType markdown,mkd,mom,nroff,text,vimwiki,mail,pandoc
                 \ let b:copilot_enabled = 0
 augroup END
 
@@ -314,6 +313,10 @@ let g:vimwiki_global_ext = 0 " only treat files in vimwiki directory list as par
 augroup pencil
     autocmd!
     autocmd FileType markdown,mkd call pencil#init({'wrap': 'soft'})
+                              \ | call lexical#init()
+                              \ | call litecorrect#init()
+                              \ | call textobj#sentence#init()
+    autocmd FileType pandoc       call pencil#init({'wrap': 'soft'})
                               \ | call lexical#init()
                               \ | call litecorrect#init()
                               \ | call textobj#sentence#init()
@@ -396,6 +399,9 @@ set conceallevel=0
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
 let g:vim_markdown_frontmatter = 1
+
+" vim-pandoc config
+let g:pandoc#syntax#conceal#use = 0
 
 " :Find fzf
 nnoremap <leader>ff :Files<cr>
