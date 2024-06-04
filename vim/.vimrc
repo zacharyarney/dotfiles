@@ -35,6 +35,7 @@ set ttimeout
 set timeoutlen=2000
 set ttimeoutlen=100
 
+
 " Temp file locations
 set backupdir=~/.vim/backup/,/var/tmp/,/tmp//
 set directory=~/.vim/swap/,/var/tmp/,/tmp//
@@ -104,8 +105,10 @@ nnoremap <leader>l :bnext<cr>
 " Previous buffer
 nnoremap <leader>h :bprevious<cr>
 " Copilot
-nnoremap <leader>cpe :Copilot enable<cr>
-nnoremap <leader>cpd :Copilot disable<cr>
+" nnoremap <leader>cpe :Copilot enable<cr>
+" nnoremap <leader>cpd :Copilot disable<cr>
+nnoremap <leader>cpe :let b:copilot_enabled = 1<cr>
+nnoremap <leader>cpd :let b:copilot_enabled = 0<cr>
 
 " ==============
 " === REMAPS ===
@@ -137,8 +140,11 @@ inoremap {<CR> {<CR>}<Esc>O
 :vnoremap \' <Esc>`>a'<Esc>`<i'<Esc>
 :vnoremap \" <Esc>`>a"<Esc>`<i"<Esc>
 
-autocmd InsertEnter * set cul
-autocmd InsertLeave * set nocul
+augroup vimrc
+    autocmd!
+    autocmd InsertEnter * set cul
+    autocmd InsertLeave * set nocul
+augroup END
 " clipboard yank compatibility for OSX/Linux to be safe I guess
 if system('uname -s') == "Darwin\n"
     set clipboard=unnamed "OSX
@@ -156,7 +162,7 @@ endif
 
 " Templates for filetypes included in ~/.vim/templates/skeleton.*
 augroup skeletons
-    au!
+    autocmd!
     autocmd BufNewFile *.* silent! execute '0r ~/.vim/templates/skeleton.'.expand("<afile>:e")
 augroup END
 
@@ -295,8 +301,10 @@ call plug#end()
 let g:copilot_assume_mapped = 1
 augroup copilot
     autocmd!
-    autocmd FileType markdown,mkd,mom,nroff,text,vimwiki,mail,pandoc
-                \ let b:copilot_enabled = 0
+    " Disable Copilot by default
+    " Enable manually with <leader>cpe
+    autocmd BufEnter,BufNewFile * let b:copilot_enabled = 0
+    " autocmd FileType markdown,mkd,mom,nroff,text,vimwiki,mail let b:copilot_enabled = 0
 augroup END
 
 " VimWiki config
