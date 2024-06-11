@@ -53,6 +53,11 @@ alias c++='c++-13'
 ctags=/opt/homebrew/bin/ctags
 
 
+########## SSH ##########
+
+export TZ="America/Los_Angeles"
+
+
 ########## FZF ##########
 
 # Using highlight (http://www.andre-simon.de/doku/highlight/en/highlight.html)
