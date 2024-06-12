@@ -31,6 +31,10 @@ vim.opt.timeoutlen = 2000
 vim.opt.ttimeoutlen = 100
 
 
+-- Cursor default plus blinking
+vim.opt.guicursor = 'n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175'
+
+
 -- Temp file locations
 local prefix = vim.env.XDG_CONFIG_HOME or vim.fn.expand("~/.config")
 vim.opt.undodir = { prefix .. "/nvim/.undo//"}
@@ -54,10 +58,6 @@ vim.opt.autowriteall = true
 
 -- clipboard yank
 vim.opt.clipboard = { 'unnamed', 'unnamedplus' }
-
-
--- lightline
-vim.g.lightline = { colorscheme = 'mentor' }
 
 
 -- set colorscheme
