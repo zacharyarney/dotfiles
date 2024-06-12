@@ -36,10 +36,10 @@ vim.opt.guicursor = 'n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700
 
 
 -- Temp file locations
-local prefix = vim.env.XDG_CONFIG_HOME or vim.fn.expand("~/.config")
-vim.opt.undodir = { prefix .. "/nvim/.undo//"}
-vim.opt.backupdir = {prefix .. "/nvim/.backup//"}
-vim.opt.directory = { prefix .. "/nvim/.swp//"}
+local prefix = vim.env.XDG_CONFIG_HOME or vim.fn.expand('~/.config')
+vim.opt.undodir = { prefix .. '/nvim/.undo//'}
+vim.opt.backupdir = {prefix .. '/nvim/.backup//'}
+vim.opt.directory = { prefix .. '/nvim/.swp//'}
 
 
 -- Folding

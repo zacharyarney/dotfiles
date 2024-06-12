@@ -96,7 +96,7 @@ if ($TERM =~ '256' || &t_Co >= 256) || has("gui_running")
   hi VertSplit        ctermbg=236  ctermfg=236  guibg=#303030 guifg=#303030 cterm=NONE           gui=NONE
   hi WildMenu         ctermbg=110  ctermfg=235  guibg=#8fafd7 guifg=#262626 cterm=NONE           gui=NONE
 
-  hi Function         ctermbg=NONE ctermfg=229  guibg=NONE    guifg=#ffffaf cterm=NONE           gui=NONE
+  hi Function         ctermbg=NONE ctermfg=101  guibg=NONE    guifg=#87875f cterm=NONE           gui=NONE
   hi SpecialKey       ctermbg=NONE ctermfg=240  guibg=NONE    guifg=#585858 cterm=NONE           gui=NONE
   hi Title            ctermbg=NONE ctermfg=231  guibg=NONE    guifg=#ffffff cterm=NONE           gui=NONE
 
