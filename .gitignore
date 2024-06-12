@@ -24,3 +24,15 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# vim temp files
+undo
+backup
+swp
+
+
+# nvim temp files
+.undo
+.backup
+.swp
+
