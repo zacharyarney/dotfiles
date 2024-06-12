@@ -1,4 +1,5 @@
 require('zacharyarney.autocmd')
+require('zacharyarney.commands')
 require('zacharyarney.remap')
 require('zacharyarney.lazy_init')
 

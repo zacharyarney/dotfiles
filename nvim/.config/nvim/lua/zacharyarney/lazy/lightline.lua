@@ -1,1 +1,3 @@
-return { 'itchyny/lightline.vim' }
+return {
+    { 'itchyny/lightline.vim', enabled = false }
+}

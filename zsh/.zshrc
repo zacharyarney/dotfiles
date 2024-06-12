@@ -21,7 +21,8 @@ alias la='ls -A'
 # Long listing format with ./ and ../ so we can view permissions of current dir
 alias ll='ls -lA'
 # Open a scratch buffer in vim (ns short for "new scratch" same as vim shortcut)
-alias ns='vim "+:call Scratch()" "+:call WordProcessorMode()"'
+# alias ns='vim "+:call Scratch()" "+:call WordProcessorMode()"'
+alias ns='nvim "+Scratch" "+WordProcessorMode"'
 # Adds color to grep command results
 alias grep='grep --color'
 # Shows hidden files and adds color to tree command
