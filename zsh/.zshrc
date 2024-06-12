@@ -76,7 +76,8 @@ export BAT_THEME="base16"
 ########## ZSH/TERM ##########
 
 # Default editor
-export VISUAL=vi
+export VISUAL=nvim
+export EDITOR=nvim
 autoload -U colors && colors
 # export COLORTERM="truecolor"
 # Custom prompt
