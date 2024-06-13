@@ -137,7 +137,7 @@ return {
                 'mail'
             },
             callback = function()
-                cmp.setup.buffer { completion = { autocomplete = false } }
+                cmp.setup.buffer { enabled = false }
             end,
             group = zacharyarney_Cmp
         })
