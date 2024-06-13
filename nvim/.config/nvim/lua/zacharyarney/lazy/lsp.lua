@@ -119,6 +119,29 @@ return {
 
         require 'lspconfig'.clangd.setup {}
 
+        -- disable cmp for writing things
+        local zacharyarney_Cmp = vim.api.nvim_create_augroup(
+            'zacharyarney_Cmp',
+            { clear = true }
+        )
+
+        vim.api.nvim_create_autocmd('FileType', {
+            pattern = {
+                'markdown',
+                'mkd',
+                'pandoc',
+                'mom',
+                'roff',
+                'text',
+                'vimwiki',
+                'mail'
+            },
+            callback = function()
+                cmp.setup.buffer { completion = { autocomplete = false } }
+            end,
+            group = zacharyarney_Cmp
+        })
+
         vim.diagnostic.config({
             -- update_in_insert = true,
             float = {
