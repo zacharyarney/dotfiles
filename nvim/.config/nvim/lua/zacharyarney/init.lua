@@ -61,6 +61,6 @@ vim.opt.clipboard = { 'unnamed', 'unnamedplus' }
 
 
 -- set colorscheme
-vim.cmd('colorscheme mentor')
+vim.cmd('colorscheme chill-mentor')
 -- vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
 -- vim.api.nvim_set_hl(0, 'NormalFloat', {bg = 'none' })

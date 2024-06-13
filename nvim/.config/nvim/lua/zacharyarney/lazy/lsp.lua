@@ -1,4 +1,5 @@
 return {
+    enabled = true,
     'neovim/nvim-lspconfig',
     dependencies = {
         'williamboman/mason.nvim',
@@ -26,13 +27,28 @@ return {
         require('mason').setup()
         require('mason-lspconfig').setup({
             ensure_installed = {
+                'bashls',
+                'cmake',
                 'gopls',
                 'lua_ls',
                 'marksman',
+                'pyright',
             },
             handlers = {
                 function(server_name) -- default handler (optional)
                     require('lspconfig')[server_name].setup {
+                        capabilities = capabilities
+                    }
+                end,
+
+                ['bashls'] = function()
+                    require 'lspconfig'.bashls.setup {
+                        capabilities = capabilities
+                    }
+                end,
+
+                ['cmake'] = function()
+                    require 'lspconfig'.cmake.setup {
                         capabilities = capabilities
                     }
                 end,
@@ -52,8 +68,22 @@ return {
                     }
                 end,
 
+                ['gopls'] = function()
+                    require 'lspconfig'.gopls.setup {
+                        capabilities = capabilities,
+                    }
+                end,
+
                 ['marksman'] = function()
-                    require 'lspconfig'.marksman.setup {}
+                    require 'lspconfig'.marksman.setup {
+                        capabilities = capabilities,
+                    }
+                end,
+
+                ['pyright'] = function()
+                    require 'lspconfig'.pyright.setup {
+                        capabilities = capabilities,
+                    }
                 end,
             }
         })
@@ -88,9 +118,6 @@ return {
         })
 
         require 'lspconfig'.clangd.setup {}
-        require 'lspconfig'.cmake.setup {}
-        require 'lspconfig'.pyright.setup {}
-        require 'lspconfig'.gopls.setup {}
 
         vim.diagnostic.config({
             -- update_in_insert = true,

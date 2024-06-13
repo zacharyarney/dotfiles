@@ -186,7 +186,7 @@ set noshowmode
 
 " Colorscheme obviously
 let g:seoul256_background = 239
-colorscheme mentor
+colorscheme newmentor
 " Lightline config
 let g:lightline = {
     \ 'colorscheme': 'mentor',
@@ -286,6 +286,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'Yggdroot/indentLine'
 " tmux pane nav integration
 Plug 'christoomey/vim-tmux-navigator'
+" Colortemplate generator
+Plug 'lifepillar/vim-colortemplate'
 " Nord theme
     " Plug 'arcticicestudio/nord-vim'
 " Oceanic Next theme
