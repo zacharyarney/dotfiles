@@ -186,7 +186,7 @@ set noshowmode
 
 " Colorscheme obviously
 let g:seoul256_background = 239
-colorscheme newmentor
+colorscheme chill-mentor
 " Lightline config
 let g:lightline = {
     \ 'colorscheme': 'mentor',
