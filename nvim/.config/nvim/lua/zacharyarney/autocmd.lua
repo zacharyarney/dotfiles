@@ -13,13 +13,3 @@ vim.api.nvim_create_autocmd('InsertLeave', {
     end,
     group = za_cursorline
 })
-
-
--- Statusline
-local za_Stl = vim.api.nvim_create_augroup('za_Stl', { clear = true })
-
-vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter' }, {
-    callback = function()
-    end,
-    group = za_Stl
-})
