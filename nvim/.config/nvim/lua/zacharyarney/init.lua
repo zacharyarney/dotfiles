@@ -15,17 +15,17 @@ vim.opt.smartindent = true
 vim.opt.hidden = true
 vim.opt.belloff = 'all'
 vim.opt.smoothscroll = true
-vim.opt.completeopt:append{'menuone', 'noinsert'}
-vim.opt.complete:remove{'i'}
+vim.opt.completeopt:append { 'menuone', 'noinsert' }
+vim.opt.complete:remove { 'i' }
 vim.opt.ruler = true
 vim.opt.laststatus = 2
 vim.opt.scrolloff = 5
 vim.opt.sidescrolloff = 5
-vim.opt.display:append{'lastline'}
+vim.opt.display:append { 'lastline' }
 vim.opt.mouse = 'a'
 vim.opt.history = 1000
 vim.opt.tabpagemax = 50
-vim.opt.sessionoptions:remove{'options'}
+vim.opt.sessionoptions:remove { 'options' }
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 2000
 vim.opt.ttimeoutlen = 100
@@ -33,14 +33,15 @@ vim.opt.hlsearch = false
 vim.opt.colorcolumn = '80'
 
 -- Cursor default plus blinking
-vim.opt.guicursor = 'n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175'
+vim.opt.guicursor =
+'n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175'
 
 
 -- Temp file locations
 local prefix = vim.env.XDG_CONFIG_HOME or vim.fn.expand('~/.config')
-vim.opt.undodir = { prefix .. '/nvim/.undo//'}
-vim.opt.backupdir = {prefix .. '/nvim/.backup//'}
-vim.opt.directory = { prefix .. '/nvim/.swp//'}
+vim.opt.undodir = { prefix .. '/nvim/.undo//' }
+vim.opt.backupdir = { prefix .. '/nvim/.backup//' }
+vim.opt.directory = { prefix .. '/nvim/.swp//' }
 
 
 -- Folding
@@ -69,3 +70,12 @@ vim.cmd('colorscheme chill-mentor-nvim')
 
 -- Statusline
 -- vim.opt.statusline = " %f %m %r %w%=%y %l:%c " -- default
+function MyStatusLine()
+    local rest = " %m %r %w%=%y %l:%c "
+    if vim.fn.expand('%:~:.') == '' or vim.bo.buftype ~= '' then
+        return '%t' .. rest
+    end
+    return vim.fn.expand('%:~:.') .. rest
+end
+
+vim.opt.statusline = "%!v:lua.MyStatusLine()"
