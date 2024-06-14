@@ -120,8 +120,8 @@ return {
         require 'lspconfig'.clangd.setup {}
 
         -- disable cmp for writing things
-        local zacharyarney_Cmp = vim.api.nvim_create_augroup(
-            'zacharyarney_Cmp',
+        local za_Cmp = vim.api.nvim_create_augroup(
+            'za_Cmp',
             { clear = true }
         )
 
@@ -139,7 +139,7 @@ return {
             callback = function()
                 cmp.setup.buffer { enabled = false }
             end,
-            group = zacharyarney_Cmp
+            group = za_Cmp
         })
 
         vim.diagnostic.config({

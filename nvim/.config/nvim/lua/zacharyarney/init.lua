@@ -30,7 +30,7 @@ vim.opt.updatetime = 250
 vim.opt.timeoutlen = 2000
 vim.opt.ttimeoutlen = 100
 vim.opt.hlsearch = false
-
+vim.opt.colorcolumn = '80'
 
 -- Cursor default plus blinking
 vim.opt.guicursor = 'n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175'
@@ -68,4 +68,4 @@ vim.cmd('colorscheme chill-mentor-nvim')
 
 
 -- Statusline
-vim.opt.statusline = ' %t %m %r %w%=%y %l:%c '
+-- vim.opt.statusline = " %f %m %r %w%=%y %l:%c " -- default

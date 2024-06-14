@@ -12,8 +12,8 @@ return {
             'mail'
         },
         config = function ()
-            local zacharyarney_Pencil = vim.api.nvim_create_augroup(
-                'zacharyarney_Pencil',
+            local za_Pencil = vim.api.nvim_create_augroup(
+                'za_Pencil',
                 { clear = true }
             )
 
@@ -32,7 +32,7 @@ return {
                     vim.g['pencil#wrapModeDefault'] = 'soft'
                     vim.fn['pencil#init']({ wrap = 'soft' })
                 end,
-                group = zacharyarney_Pencil
+                group = za_Pencil
             })
         end
     },
@@ -52,8 +52,8 @@ return {
             vim.g['lexical#spell_key'] = '<leader>s'
             vim.g['lexical#dictionary_key'] = '<leader>k'
 
-            local zacharyarney_Lexical = vim.api.nvim_create_augroup(
-                'zacharyarney_Lexical',
+            local za_Lexical = vim.api.nvim_create_augroup(
+                'za_Lexical',
                 { clear = true }
             )
 
@@ -71,7 +71,7 @@ return {
                 callback = function()
                     vim.fn['lexical#init']()
                 end,
-                group = zacharyarney_Lexical
+                group = za_Lexical
             })
         end
     },
@@ -102,8 +102,8 @@ return {
             'mail'
         },
         config = function ()
-            local zacharyarney_TextObjSentence = vim.api.nvim_create_augroup(
-                'zacharyarney_TextObjSentence',
+            local za_TextObjSentence = vim.api.nvim_create_augroup(
+                'za_TextObjSentence',
                 { clear = true }
             )
 
@@ -121,7 +121,7 @@ return {
                 callback = function()
                     vim.fn['textobj#sentence#init']()
                 end,
-                group = zacharyarney_TextObjSentence
+                group = za_TextObjSentence
             })
         end
     },

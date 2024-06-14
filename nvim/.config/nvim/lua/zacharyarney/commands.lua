@@ -5,6 +5,7 @@ vim.api.nvim_create_user_command(
         vim.opt.swapfile = false
         vim.opt.buftype = 'nofile'
         vim.opt.bufhidden = 'hide'
+        vim.opt.filetype = 'scratch'
     end,
     {}
 )
