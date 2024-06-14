@@ -29,6 +29,7 @@ vim.opt.sessionoptions:remove{'options'}
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 2000
 vim.opt.ttimeoutlen = 100
+vim.opt.hlsearch = false
 
 
 -- Cursor default plus blinking
@@ -56,11 +57,15 @@ vim.opt.number = true
 vim.opt.autowriteall = true
 
 
--- clipboard yank
+-- Clipboard yank
 vim.opt.clipboard = { 'unnamed', 'unnamedplus' }
 
 
--- set colorscheme
+-- Set colorscheme
 vim.cmd('colorscheme chill-mentor-nvim')
 -- vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
 -- vim.api.nvim_set_hl(0, 'NormalFloat', {bg = 'none' })
+
+
+-- Statusline
+vim.opt.statusline = ' %t %m %r %w%=%y %l:%c '
