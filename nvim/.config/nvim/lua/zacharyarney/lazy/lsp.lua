@@ -28,6 +28,7 @@ return {
         require('mason-lspconfig').setup({
             ensure_installed = {
                 'bashls',
+                'clangd',
                 'cmake',
                 'gopls',
                 'lua_ls',
@@ -44,6 +45,13 @@ return {
                 ['bashls'] = function()
                     require 'lspconfig'.bashls.setup {
                         capabilities = capabilities
+                    }
+                end,
+
+                ['clangd'] = function()
+                    require 'lspconfig'.clangd.setup {
+                        capabilities = capabilities,
+                        cmd = { 'clangd', '--background-index', '--clang-tidy' }
                     }
                 end,
 
@@ -116,8 +124,6 @@ return {
                 { name = 'buffer' },
             }),
         })
-
-        require 'lspconfig'.clangd.setup {}
 
         -- disable cmp for writing things
         local za_Cmp = vim.api.nvim_create_augroup(
