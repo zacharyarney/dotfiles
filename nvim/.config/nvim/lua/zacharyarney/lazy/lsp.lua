@@ -114,8 +114,8 @@ return {
                 ['<C-Space>'] = cmp.mapping.complete(),
             }),
             window = {
-                -- completion = cmp.config.window.bordered(),
-                -- documentation = cmp.config.window.bordered(),
+                completion = cmp.config.window.bordered(),
+                documentation = cmp.config.window.bordered(),
             },
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
@@ -147,6 +147,14 @@ return {
             end,
             group = za_Cmp
         })
+
+        -- borders
+        local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+        function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+            opts = opts or {}
+            opts.border = opts.border or 'rounded'
+            return orig_util_open_floating_preview(contents, syntax, opts, ...)
+        end
 
         vim.diagnostic.config({
             -- update_in_insert = true,
