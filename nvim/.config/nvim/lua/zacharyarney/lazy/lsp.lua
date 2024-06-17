@@ -16,6 +16,8 @@ return {
 
     config = function()
         vim.keymap.set('n', '<leader>ca', function () vim.lsp.buf.code_action() end)
+        vim.keymap.set('n', '<leader>on', function () vim.diagnostic.goto_next() end)
+        vim.keymap.set('n', '<leader>op', function () vim.diagnostic.goto_prev() end)
         local cmp = require('cmp')
         local cmp_lsp = require('cmp_nvim_lsp')
         local capabilities = vim.tbl_deep_extend(
@@ -63,8 +65,7 @@ return {
                 end,
 
                 ['lua_ls'] = function()
-                    local lspconfig = require('lspconfig')
-                    lspconfig.lua_ls.setup {
+                    require 'lspconfig'.lua_ls.setup {
                         capabilities = capabilities,
                         settings = {
                             Lua = {
@@ -122,8 +123,8 @@ return {
                 { name = 'nvim_lsp' },
                 { name = 'luasnip' }, -- For luasnip users.
             }, {
-                { name = 'buffer' },
-            }),
+                    { name = 'buffer' },
+                }),
         })
 
         -- disable cmp for writing things
@@ -151,22 +152,25 @@ return {
 
         -- borders
         local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+
         function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
             opts = opts or {}
             opts.border = opts.border or 'rounded'
-            return orig_util_open_floating_preview(contents, syntax, opts, ...)
+            return orig_util_open_floating_preview( contents, syntax, opts, ...)
         end
 
         vim.diagnostic.config({
-            -- update_in_insert = true,
-            float = {
-                focusable = false,
-                style = 'minimal',
-                border = 'rounded',
-                source = 'always',
-                header = '',
-                prefix = '',
-            },
+            --update_in_insert = true,
+            float =
+                {
+                    border = 'rounded',
+                    focusable = true,
+                    header = '',
+                    prefix = '',
+                    scope = 'buffer',
+                    source = 'always',
+                    style = 'minimal',
+                },
         })
     end
 }
