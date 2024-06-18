@@ -1,20 +1,20 @@
 return {
     {
-        "CopilotC-Nvim/CopilotChat.nvim",
-        branch = "canary",
-        cmd = "CopilotChat",
+        'CopilotC-Nvim/CopilotChat.nvim',
+        branch = 'canary',
+        cmd = 'CopilotChat',
         dependencies = {
-            { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
+            { 'zbirenbaum/copilot.lua' }, -- or github/copilot.vim
             { 'nvim-telescope/telescope.nvim' }, -- telescope help actions
-            { "nvim-lua/plenary.nvim" },  -- for curl, log wrapper
+            { 'nvim-lua/plenary.nvim' },  -- for curl, log wrapper
         },
         config = function(_, opts)
-            local chat = require("CopilotChat")
-            local cmp = require("CopilotChat.integrations.cmp")
+            local chat = require('CopilotChat')
+            local cmp = require('CopilotChat.integrations.cmp')
             cmp.setup()
 
-            vim.api.nvim_create_autocmd("BufEnter", {
-                pattern = "copilot-chat",
+            vim.api.nvim_create_autocmd('BufEnter', {
+                pattern = 'copilot-chat',
                 callback = function()
                     vim.opt_local.relativenumber = false
                     vim.opt_local.number = false
@@ -36,34 +36,34 @@ return {
             },
         },
         keys = function()
-            local chat = require("CopilotChat")
-            local actions = require("CopilotChat.actions")
-            local telescope = require("CopilotChat.integrations.telescope")
+            local chat = require('CopilotChat')
+            local actions = require('CopilotChat.actions')
+            local telescope = require('CopilotChat.integrations.telescope')
 
             local function createKey(leader, func, desc)
                 return {
                     leader,
                     func,
-                    desc = desc .. " (CopilotChat)",
-                    mode = { "n", "v" },
+                    desc = desc .. ' (CopilotChat)',
+                    mode = { 'n', 'v' },
                 }
             end
 
             return {
-                createKey("<leader>cc", chat.toggle, "Toggle"),
-                createKey("<leader>cx", chat.reset, "Clear"),
-                createKey("<leader>cq", function()
-                    local input = vim.fn.input("Quick Chat: ")
-                    if input ~= "" then
+                createKey('<leader>cc', chat.toggle, 'Toggle'),
+                createKey('<leader>cx', chat.reset, 'Clear'),
+                createKey('<leader>cq', function()
+                    local input = vim.fn.input('Quick Chat: ')
+                    if input ~= '' then
                         chat.ask(input)
                     end
-                end, "Quick Chat"),
-                createKey("<leader>cd", function()
+                end, 'Quick Chat'),
+                createKey('<leader>cd', function()
                     telescope.pick(actions.help_actions())
-                end, "Diagnostic Help"),
-                createKey("<leader>cp", function()
+                end, 'Diagnostic Help'),
+                createKey('<leader>cp', function()
                     telescope.pick(actions.prompt_actions())
-                end, "Prompt Actions"),
+                end, 'Prompt Actions'),
             }
         end,
         -- See Commands section for default commands if you want to lazy load on them

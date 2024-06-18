@@ -12,7 +12,6 @@ vim.opt.expandtab = true
 vim.opt.smarttab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
-vim.opt.hidden = true
 vim.opt.belloff = 'all'
 vim.opt.smoothscroll = true
 vim.opt.completeopt:append { 'menuone', 'noinsert' }
@@ -55,6 +54,8 @@ vim.opt.number = true
 
 
 -- Save on buffer leave
+vim.opt.hidden = false
+vim.opt.autowrite= true
 vim.opt.autowriteall = true
 
 
@@ -69,13 +70,13 @@ vim.cmd('colorscheme chill-mentor-nvim')
 
 
 -- Statusline
--- vim.opt.statusline = " %f %m %r %w%=%y %l:%c " -- default
+-- vim.opt.statusline = ' %f %m %r %w%=%y %l:%c ' -- default
 function MyStatusLine()
-    local rest = " %m %r %w%=%y %l:%c "
+    local rest = ' %m %r %w%=%y %l:%c '
     if vim.fn.expand('%:~:.') == '' or vim.bo.buftype ~= '' then
         return '%t' .. rest
     end
     return vim.fn.expand('%:~:.') .. rest
 end
 
-vim.opt.statusline = "%!v:lua.MyStatusLine()"
+vim.opt.statusline = '%!v:lua.MyStatusLine()'
