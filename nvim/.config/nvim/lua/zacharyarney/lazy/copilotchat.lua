@@ -29,10 +29,10 @@ return {
             context = 'buffers',
             window = {
                 layout = 'float', -- 'vertical', 'horizontal', 'float', 'replace'
-                relative = 'cursor',
+                relative = 'editor',
                 width = 1,
                 height = 0.4,
-                row = 1
+                row = vim.o.lines - vim.o.lines * 0.4
             },
         },
         keys = function()
