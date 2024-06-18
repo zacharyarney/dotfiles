@@ -3,6 +3,10 @@ require('zacharyarney.commands')
 require('zacharyarney.remap')
 require('zacharyarney.lazy_init')
 
+vim.g.python_host_prog = '/Users/zacharyarney/venvs/.nvim-venv/bin/python'
+vim.g.python3_host_prog = '/Users/zacharyarney/venvs/.nvim-venv/bin/python3'
+vim.g.ruby_host_prog = '/Users/zacharyarney/.local/share/gem/ruby/3.2.0/neovim-ruby-host'
+
 vim.opt.wrap = false
 vim.opt.autoread = true
 vim.opt.tabstop = 4
@@ -55,7 +59,7 @@ vim.opt.number = true
 
 -- Save on buffer leave
 vim.opt.hidden = false
-vim.opt.autowrite= true
+vim.opt.autowrite = true
 vim.opt.autowriteall = true
 
 

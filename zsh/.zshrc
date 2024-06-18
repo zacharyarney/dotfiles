@@ -52,6 +52,11 @@ ctags=/opt/homebrew/bin/ctags
 
 ########## NVIM ##########
 
+export PYENV_ROOT="$HOME/.pyenv"
+
+
+########## NVIM ##########
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -108,6 +113,9 @@ setopt hist_ignore_all_dups
 setopt hist_ignore_dups
 setopt hist_save_no_dups
 setopt hist_find_no_dups
+
+
+export PATH=$HOME/.rbenv/shims:$PATH
 
 
 # THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
