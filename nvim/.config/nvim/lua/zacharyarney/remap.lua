@@ -22,5 +22,3 @@ map('i', '{<CR>', '{<CR>}<Esc>O', opts)
 -- Paste over without yanking
 map('x', '<leader>p', [['_dP]])
 
--- clang-format
-map('n', '<leader>cf', ':%!clang-format<CR>', opts)
