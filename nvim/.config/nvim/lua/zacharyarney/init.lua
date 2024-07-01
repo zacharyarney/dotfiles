@@ -1,6 +1,8 @@
 require('zacharyarney.autocmd')
 require('zacharyarney.commands')
+require('zacharyarney.filetype')
 require('zacharyarney.remap')
+
 require('zacharyarney.lazy_init')
 
 vim.g.python_host_prog = '/Users/zacharyarney/venvs/.nvim-venv/bin/python'

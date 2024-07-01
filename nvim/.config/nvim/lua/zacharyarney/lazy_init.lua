@@ -15,5 +15,10 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
 	spec = 'zacharyarney.lazy',
-	change_detection = { notify = false }
+	change_detection = { notify = false },
+    opts = {
+        rocks = {
+            hererocks = true,
+        }
+    }
 })

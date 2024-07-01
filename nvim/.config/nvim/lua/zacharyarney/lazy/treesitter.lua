@@ -47,5 +47,8 @@ return {
                 branch = 'master',
             },
         }
+
+        -- MDX support-ish
+        vim.treesitter.language.register('markdown', { 'mdx' })
     end
 }
