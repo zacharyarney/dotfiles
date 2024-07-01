@@ -39,17 +39,18 @@ return {
                 'lua_ls',
                 'marksman',
                 'pyright',
+                'tsserver',
             },
             handlers = {
                 function(server_name) -- default handler (optional)
                     require('lspconfig')[server_name].setup {
-                        capabilities = capabilities
+                        capabilities = capabilities,
                     }
                 end,
 
                 ['bashls'] = function()
                     require 'lspconfig'.bashls.setup {
-                        capabilities = capabilities
+                        capabilities = capabilities,
                     }
                 end,
 
@@ -62,7 +63,7 @@ return {
 
                 ['cmake'] = function()
                     require 'lspconfig'.cmake.setup {
-                        capabilities = capabilities
+                        capabilities = capabilities,
                     }
                 end,
 
@@ -97,6 +98,11 @@ return {
                         capabilities = capabilities,
                     }
                 end,
+                ['tsserver'] = function ()
+                    require 'lspconfig'.tsserver.setup {
+                        capabilities = capabilities,
+                    }
+                end
             }
         })
 
