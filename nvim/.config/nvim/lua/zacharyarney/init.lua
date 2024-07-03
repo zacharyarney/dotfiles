@@ -35,7 +35,11 @@ vim.opt.updatetime = 250
 vim.opt.timeoutlen = 2000
 vim.opt.ttimeoutlen = 100
 vim.opt.hlsearch = false
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 vim.opt.colorcolumn = '80'
+-- vim.opt.title = true
+
 
 -- Cursor default plus blinking
 vim.opt.guicursor =

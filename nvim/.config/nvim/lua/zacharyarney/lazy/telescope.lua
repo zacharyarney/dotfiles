@@ -18,11 +18,21 @@ return {
         end)
         vim.keymap.set('n', '<leader>fh', builtin.help_tags, opts)
         require('telescope').setup {
+            defaults = {
+                'rg',
+                '--color=never',
+                '--no-heading',
+                '--with-filename',
+                '--line-number',
+                '--column',
+                '--smart-case',
+                '-uu' -- don't respect .gitignore and show hidden files
+            },
             pickers = {
                 find_files = {
                     hidden = true,
                 }
-            }
+            },
         }
     end
 }
