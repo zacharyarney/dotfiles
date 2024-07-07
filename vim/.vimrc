@@ -254,6 +254,7 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'othree/html5.vim'
 " clang-format, a formatter for C, C++, Obj-C, Java, JS, TS and ProtoBuf
 Plug 'rhysd/vim-clang-format'
+Plug 'kana/vim-operator-user'
 " clang-complete
 Plug 'xavierd/clang_complete'
 " Better statusline
@@ -374,13 +375,17 @@ nnoremap <leader>pal :ALEFix<cr>
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'python': ['flake8'],
-\   'go': ['go', 'golint', 'errcheck']
+\   'go': ['go', 'golint', 'errcheck'],
+\   'c': [],
+\   'cpp': []
 \}
 
 let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
 \   'python': ['autopep8'],
-\   'go': ['gofmt', 'goimports']
+\   'go': ['gofmt', 'goimports'],
+\   'c': [],
+\   'cpp': []
 \}
 
 " clang-format config
@@ -388,8 +393,10 @@ let g:clang_format#style_options = {
             \ "AccessModifierOffset" : -4,
             \ "AllowShortIfStatementsOnASingleLine" : "true",
             \ "AlwaysBreakTemplateDeclarations" : "true",
-            \ "Standard" : "C++11"}
+            \ "Standard" : "C++17"}
 let g:clang_format#auto_format = 1
+let g:clang_format#command = '/usr/local/bin/clang-format'
+
 " map to <Leader>cf in C++ code
 autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
 autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
