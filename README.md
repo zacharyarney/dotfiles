@@ -17,10 +17,16 @@ Currently:
 ```
 $ stow bash
 $ stow bin
+$ stow clang-format
+$ stow ctags
 $ stow emacs
 $ stow jetbrains
+$ stow nvim
 $ stow ranger
 $ stow tmux
 $ stow vim
 $ stow zsh
 ```
+
+Note: `stow` will create symlinks for directories that do not already exist which may lead to future packages being installed into folders within this repo. Make sure directories like `~/.local/share/nvim` exist before running `apply.sh` to avoid having to reinstall plugins, etc.
+
