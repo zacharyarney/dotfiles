@@ -20,6 +20,7 @@ return {
         vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
         vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next, opts)
         vim.keymap.set('n', '<leader>dp', vim.diagnostic.goto_prev, opts)
+        vim.keymap.set('n', '<leader>do', vim.diagnostic.open_float, opts)
         local cmp = require('cmp')
         local cmp_lsp = require('cmp_nvim_lsp')
         local capabilities = vim.tbl_deep_extend(
@@ -161,10 +162,10 @@ return {
         -- borders
         local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 
-        function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-            opts = opts or {}
-            opts.border = opts.border or 'rounded'
-            return orig_util_open_floating_preview( contents, syntax, opts, ...)
+        function vim.lsp.util.open_floating_preview(contents, syntax, options, ...)
+            options = options or {}
+            options.border = options.border or 'rounded'
+            return orig_util_open_floating_preview( contents, syntax, options, ...)
         end
 
         vim.diagnostic.config({

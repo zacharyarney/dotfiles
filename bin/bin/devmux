@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-tmux new -d -s dev -n vim 'vim' \; \
+tmux new -d -s dev -n vim 'nvim' \; \
     new-window -n shell \; \
     new-window -n home 'cd; zsh -i' \; \
     select-window -t vim \; \
