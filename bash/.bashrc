@@ -60,6 +60,7 @@ export TZ="America/Los_Angeles"
 
 ########## FZF ##########
 
+eval "$(fzf --bash)"
 # Using highlight (http://www.andre-simon.de/doku/highlight/en/highlight.html)
 export FZF_DEFAULT_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 # export BAT_THEME="base16"

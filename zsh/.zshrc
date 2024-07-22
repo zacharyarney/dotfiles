@@ -69,6 +69,7 @@ export TZ="America/Los_Angeles"
 
 ########## FZF ##########
 
+source <(fzf --zsh)
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
 export FZF_CTRL_T_COMMAND="rg --files --hidden --follow --glob '!.git'"
 export FZF_DEFAULT_OPTS="--preview='less {}' --height 40%"
