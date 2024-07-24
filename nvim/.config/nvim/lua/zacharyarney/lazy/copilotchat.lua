@@ -31,8 +31,8 @@ return {
                 layout = 'float', -- 'vertical', 'horizontal', 'float', 'replace'
                 relative = 'editor',
                 width = 1,
-                height = 0.4,
-                row = vim.o.lines - vim.o.lines * 0.4
+                height = 0.5,
+                row = vim.o.lines - vim.o.lines * 0.5
             },
         },
         keys = function()
