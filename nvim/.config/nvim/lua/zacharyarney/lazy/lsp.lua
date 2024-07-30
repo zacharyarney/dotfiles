@@ -162,10 +162,10 @@ return {
         -- borders
         local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 
-        function vim.lsp.util.open_floating_preview(contents, syntax, options, ...)
-            options = options or {}
-            options.border = options.border or 'rounded'
-            return orig_util_open_floating_preview( contents, syntax, options, ...)
+        function vim.lsp.util.open_floating_preview(contents, syntax, funopts, ...)
+            funopts = funopts or {}
+            funopts.border = funopts.border or 'rounded'
+            return orig_util_open_floating_preview( contents, syntax, funopts, ...)
         end
 
         vim.diagnostic.config({
