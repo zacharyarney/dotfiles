@@ -30,7 +30,8 @@ return {
             window = {
                 layout = 'float', -- 'vertical', 'horizontal', 'float', 'replace'
                 relative = 'editor',
-                width = 1,
+                width = 80,
+                col = vim.o.columns - 80,
                 height = 0.5,
                 row = vim.o.lines - vim.o.lines * 0.5
             },
