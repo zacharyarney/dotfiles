@@ -9,7 +9,8 @@ return {
             'roff',
             'text',
             'vimwiki',
-            'mail'
+            'mail',
+            'scratch'
         },
         config = function ()
             local za_Pencil = vim.api.nvim_create_augroup(
@@ -26,7 +27,8 @@ return {
                     'roff',
                     'text',
                     'vimwiki',
-                    'mail'
+                    'mail',
+                    'scratch'
                 },
                 callback = function()
                     vim.g['pencil#wrapModeDefault'] = 'soft'
@@ -46,7 +48,8 @@ return {
             'roff',
             'text',
             'vimwiki',
-            'mail'
+            'mail',
+            'scratch'
         },
         config = function ()
             vim.g['lexical#spell_key'] = '<leader>s'
@@ -66,7 +69,8 @@ return {
                     'roff',
                     'text',
                     'vimwiki',
-                    'mail'
+                    'mail',
+                    'scratch'
                 },
                 callback = function()
                     vim.fn['lexical#init']()
@@ -85,7 +89,8 @@ return {
             'roff',
             'text',
             'vimwiki',
-            'mail'
+            'mail',
+            'scratch'
         }
     },
     {
@@ -99,7 +104,8 @@ return {
             'roff',
             'text',
             'vimwiki',
-            'mail'
+            'mail',
+            'scratch'
         },
         config = function ()
             local za_TextObjSentence = vim.api.nvim_create_augroup(
@@ -116,7 +122,8 @@ return {
                     'roff',
                     'text',
                     'vimwiki',
-                    'mail'
+                    'mail',
+                    'scratch'
                 },
                 callback = function()
                     vim.fn['textobj#sentence#init']()
@@ -129,6 +136,8 @@ return {
         'junegunn/goyo.vim',
         config = function ()
             vim.g.goyo_liner = 0
+			vim.keymap.set('', 'j', 'gj')
+			vim.keymap.set('', 'l', 'gl')
             vim.keymap.set('n', '<leader>G', ':Goyo<CR>', { noremap = true, silent = true })
         end
     },
