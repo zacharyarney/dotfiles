@@ -137,7 +137,7 @@ return {
         config = function ()
             vim.g.goyo_liner = 0
 			vim.keymap.set('', 'j', 'gj')
-			vim.keymap.set('', 'l', 'gl')
+			vim.keymap.set('', 'k', 'gk')
             vim.keymap.set('n', '<leader>G', ':Goyo<CR>', { noremap = true, silent = true })
         end
     },

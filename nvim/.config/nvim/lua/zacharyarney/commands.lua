@@ -15,7 +15,7 @@ vim.api.nvim_create_user_command(
     'WordProcessorMode',
     function ()
         vim.keymap.set('', 'j', 'gj')
-        vim.keymap.set('', 'l', 'gl')
+        vim.keymap.set('', 'k', 'gl')
 
         vim.opt.formatoptions = '1'
         vim.opt.expandtab = false
