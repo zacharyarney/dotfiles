@@ -19,6 +19,16 @@ return {
         vim.keymap.set('n', '<leader>fh', builtin.help_tags, opts)
         require('telescope').setup {
             defaults = {
+                vimgrep_arguments = {
+                    'rg',
+                    '--color=never',
+                    '--no-heading',
+                    '--with-filename',
+                    '--line-number',
+                    '--column',
+                    '--smart-case',
+                    '-uu' -- don't respect .gitignore and show hidden files
+                },
                 'rg',
                 '--color=never',
                 '--no-heading',
