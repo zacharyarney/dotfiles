@@ -50,6 +50,11 @@ alias {spot,spotify,sp}=spotify_player
 ctags=/opt/homebrew/bin/ctags
 
 
+########## FUNCTIONS ##########
+
+function gi() { curl -sLw "\n" https://www.toptal.com/developers/gitignore/api/$@ ;}
+
+
 ########## NVIM ##########
 
 export PYENV_ROOT="$HOME/.pyenv"

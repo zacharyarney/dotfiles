@@ -53,6 +53,11 @@ alias c++='c++-13'
 ctags=/opt/homebrew/bin/ctags
 
 
+########## FUNCTIONS ##########
+
+function gi() { curl -sL https://www.toptal.com/developers/gitignore/api/\$@ ;}
+
+
 ########## SSH ##########
 
 export TZ="America/Los_Angeles"
