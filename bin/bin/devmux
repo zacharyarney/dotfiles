@@ -1,7 +1,15 @@
 #!/usr/bin/env bash
 
-tmux new -d -s dev -n vim 'nvim' \; \
-    new-window -n shell \; \
-    new-window -n home 'cd; zsh -i' \; \
-    select-window -t vim \; \
-    attach -t dev \;
+SESSION_NAME="dev"
+
+if tmux has-session -t $SESSION_NAME 2>/dev/null; then
+    echo "Session $SESSION_NAME already exists. Attaching to $SESSION_NAME."
+    tmux attach -t $SESSION_NAME
+else
+    tmux new -d -s $SESSION_NAME -n vim
+    tmux new-window -n shell
+    tmux new-window -n home 'cd; zsh -i'
+    tmux select-window -t vim
+    tmux send-keys "nvim" C-m
+    tmux attach -t $SESSION_NAME
+fi

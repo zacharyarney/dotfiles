@@ -1,7 +1,14 @@
 #!/usr/bin/env bash
 
-tmux new -d -s yo -n shell \; \
-    new-window -n home 'cd; zsh -i' \; \
-    new-window -n spotify 'cd; spotify_player; zsh -i' \; \
-    select-window -t shell \; \
-    attach -t yo \;
+SESSION_NAME="yo"
+
+if tmux has-session -t $SESSION_NAME 2>/dev/null; then
+    echo "Session $SESSION_NAME already exists. Attaching to $SESSION_NAME."
+    tmux attach -t $SESSION_NAME
+else
+    tmux new -d -s $SESSION_NAME -n shell
+    tmux new-window -n home 'cd; zsh -i'
+    tmux new-window -n spotify 'cd; spotify_player; zsh -i'
+    tmux select-window -t shell
+    tmux attach -t $SESSION_NAME
+fi
