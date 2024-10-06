@@ -58,7 +58,12 @@ return {
                 ['clangd'] = function()
                     require 'lspconfig'.clangd.setup {
                         capabilities = capabilities,
-                        cmd = { 'clangd', '--background-index', '--clang-tidy' }
+                        cmd = {
+                            'clangd',
+                            '--background-index',
+                            '--clang-tidy',
+                            '--header-insertion=never'
+                        }
                     }
                 end,
 
