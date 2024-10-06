@@ -40,7 +40,7 @@ return {
                 'lua_ls',
                 'marksman',
                 'pyright',
-                'tsserver',
+                'ts_ls',
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -62,7 +62,7 @@ return {
                             'clangd',
                             '--background-index',
                             '--clang-tidy',
-                            '--header-insertion=never'
+                            '--header-insertion=never',
                         }
                     }
                 end,
@@ -104,8 +104,8 @@ return {
                         capabilities = capabilities,
                     }
                 end,
-                ['tsserver'] = function ()
-                    require 'lspconfig'.tsserver.setup {
+                ['ts_ls'] = function ()
+                    require 'lspconfig'.ts_ls.setup {
                         capabilities = capabilities,
                     }
                 end
