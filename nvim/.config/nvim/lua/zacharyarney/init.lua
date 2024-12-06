@@ -25,7 +25,7 @@ vim.opt.complete:remove { 'i' }
 vim.opt.ruler = true
 vim.opt.laststatus = 2
 vim.opt.scrolloff = 5
-vim.opt.sidescrolloff = 5
+-- vim.opt.sidescrolloff = 5
 vim.opt.display:append { 'lastline' }
 vim.opt.mouse = 'a'
 vim.opt.history = 1000

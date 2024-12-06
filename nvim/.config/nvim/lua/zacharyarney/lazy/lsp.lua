@@ -63,6 +63,7 @@ return {
                             '--background-index',
                             '--clang-tidy',
                             '--header-insertion=never',
+                            '--completion-style=detailed',
                         }
                     }
                 end,
@@ -169,22 +170,21 @@ return {
 
         function vim.lsp.util.open_floating_preview(contents, syntax, funopts, ...)
             funopts = funopts or {}
-            funopts.border = funopts.border or 'rounded'
-            return orig_util_open_floating_preview( contents, syntax, funopts, ...)
-        end
+    funopts.border =
+        funopts.border or 'rounded' return orig_util_open_floating_preview(
+                              contents, syntax, funopts, ...) end
 
-        vim.diagnostic.config({
-            --update_in_insert = true,
-            float =
-                {
-                    border = 'rounded',
-                    focusable = true,
-                    header = '',
-                    prefix = '',
-                    scope = 'buffer',
-                    source = 'always',
-                    style = 'minimal',
-                },
-        })
-    end
+                              vim.diagnostic.config({
+                                  --update_in_insert = true,
+                                  float =
+                                      {
+                                          border = 'rounded',
+                                          focusable = true,
+                                          header = '',
+                                          prefix = '',
+                                          scope = 'buffer',
+                                          source = 'always',
+                                          style = 'minimal',
+                                      },
+                              }) end
 }
