@@ -71,6 +71,7 @@ vim.opt.foldenable = false
 
 -- Line numbers
 vim.opt.number = true
+vim.opt.relativenumber = true
 
 
 -- Save on buffer leave
