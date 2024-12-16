@@ -28,6 +28,7 @@ vim.opt.scrolloff = 5
 -- vim.opt.sidescrolloff = 5
 vim.opt.display:append { 'lastline' }
 vim.opt.mouse = 'a'
+vim.opt.mousescroll = 'ver:1,hor:0'
 vim.opt.history = 1000
 vim.opt.tabpagemax = 50
 vim.opt.sessionoptions:remove { 'options' }

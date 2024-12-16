@@ -17,7 +17,7 @@ set complete-=i
 set ruler
 set laststatus=2
 set scrolloff=5
-set sidescrolloff=5
+set sidescrolloff=0
 set display+=lastline
 set mouse=a
 set bs=indent,eol,start
