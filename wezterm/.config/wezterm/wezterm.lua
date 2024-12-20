@@ -9,6 +9,7 @@ config = {
     -- window_close_confirmation = "NeverPrompt",
     font = wezterm.font("Iosevka Term"),
     font_size = 14,
+    harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
     adjust_window_size_when_changing_font_size = true,
     window_decorations = "INTEGRATED_BUTTONS|RESIZE|MACOS_FORCE_ENABLE_SHADOW",
     initial_rows = 48,
