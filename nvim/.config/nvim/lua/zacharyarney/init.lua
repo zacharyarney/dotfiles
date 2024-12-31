@@ -76,9 +76,9 @@ vim.opt.relativenumber = true
 
 
 -- Save on buffer leave
-vim.opt.hidden = false
-vim.opt.autowrite = true
-vim.opt.autowriteall = true
+-- vim.opt.hidden = true
+-- vim.opt.autowrite = true
+-- vim.opt.autowriteall = true
 
 
 -- Clipboard yank
