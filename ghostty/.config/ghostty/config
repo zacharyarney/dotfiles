@@ -1,0 +1,10 @@
+cursor-style = block
+cursor-style-blink = true
+mouse-hide-while-typing = true
+copy-on-select = true
+cursor-click-to-move = true
+font-family = ""
+font-family = "Iosevka Term"
+font-size = 14
+shell-integration-features = no-cursor
+theme = chill-mentor
