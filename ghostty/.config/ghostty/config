@@ -1,15 +1,23 @@
+#### BEHAVIOR ####
 copy-on-select = true
 cursor-click-to-move = true
-cursor-style = block
-cursor-style-blink = true
-font-family = ""
+mouse-hide-while-typing = true
+
+#### FONT ####
 font-family = "Iosevka Term"
 font-feature = -calt
 font-feature = -dlig
 font-feature = -liga
 font-size = 14
-macos-titlebar-proxy-icon = hidden
-mouse-hide-while-typing = true
+
+#### SHELL INTEGRATION ####
+cursor-style = block
+cursor-style-blink = true
 shell-integration-features = no-cursor
+
+#### THEME ####
 theme = chill-mentor
+
+#### WINDOW ####
+macos-titlebar-proxy-icon = hidden
 title = " "
