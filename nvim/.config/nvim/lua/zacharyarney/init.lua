@@ -43,18 +43,18 @@ vim.opt.colorcolumn = '80'
 
 
 -- Cursor default plus blinking
--- vim.opt.guicursor = 'n-v-c:block,' ..
---                     'i-ci-ve:ver25,' ..
---                     'r-cr:hor20,' ..
---                     'o:hor50,' ..
---                     'a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,' ..
---                     'sm:block-blinkwait175-blinkoff150-blinkon175'
-
--- Modified cursor settings without blinking
-vim.opt.guicursor = 'n-v-c:block-Cursor/lCursor,' ..
+vim.opt.guicursor = 'n-v-c:block,' ..
                     'i-ci-ve:ver25,' ..
                     'r-cr:hor20,' ..
-                    'o:hor50'
+                    'o:hor50,' ..
+                    'a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,' ..
+                    'sm:block-blinkwait175-blinkoff150-blinkon175'
+
+-- Modified cursor settings without blinking
+-- vim.opt.guicursor = 'n-v-c:block-Cursor/lCursor,' ..
+--                     'i-ci-ve:ver25,' ..
+--                     'r-cr:hor20,' ..
+--                     'o:hor50'
 
 
 -- Temp file locations
@@ -89,6 +89,10 @@ vim.opt.clipboard = { 'unnamed', 'unnamedplus' }
 vim.cmd('colorscheme chill-mentor-nvim')
 -- vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
 -- vim.api.nvim_set_hl(0, 'NormalFloat', {bg = 'none' })
+
+
+-- Underline cursorline
+-- vim.api.nvim_set_hl(0, 'CursorLine', { underline = true })
 
 
 -- Statusline
