@@ -19,5 +19,6 @@ shell-integration-features = no-cursor
 theme = chill-mentor
 
 #### WINDOW ####
+background-opacity = 0.999
 macos-titlebar-proxy-icon = hidden
 title = " "
