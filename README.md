@@ -20,11 +20,13 @@ $ stow bin
 $ stow clang-format
 $ stow ctags
 $ stow emacs
+$ stow ghostty
 $ stow jetbrains
 $ stow nvim
 $ stow ranger
 $ stow tmux
 $ stow vim
+$ stow wezterm
 $ stow zsh
 ```
 
