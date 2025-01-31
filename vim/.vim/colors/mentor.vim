@@ -14,6 +14,7 @@ hi clear
 let g:colors_name = 'mentor'
 
 let s:t_Co = has('gui_running') ? -1 : (&t_Co ?? 0)
+let s:italics = has('gui_running') || (&t_ZH != '' && &t_ZH != '[7m' && !has('win32'))
 
 if (has('termguicolors') && &termguicolors) || has('gui_running')
   let g:terminal_ansi_colors = ['#1c1c1c', '#af5f5f', '#5f875f', '#87875f', '#5f87af', '#5f5f87', '#5f8787', '#6c6c6c', '#444444', '#ff8700', '#87af87', '#ffffaf', '#87afd7', '#8787af', '#5fafaf', '#eeeeee']
@@ -72,7 +73,7 @@ hi Changed guifg=#5fafaf guibg=NONE gui=NONE cterm=NONE
 hi! link Terminal Normal
 hi! link CursorIM Cursor
 hi! link QuickFixLine Search
-hi Comment guifg=#6c6c6c guibg=NONE gui=NONE cterm=NONE
+hi Comment guifg=#6c6c6c guibg=NONE gui=italic cterm=italic
 hi Conceal guifg=#bcbcbc guibg=NONE gui=NONE cterm=NONE
 hi Constant guifg=#ff8700 guibg=NONE gui=NONE cterm=NONE
 hi Error guifg=#af5f5f guibg=NONE gui=reverse cterm=reverse
@@ -127,6 +128,9 @@ hi! link xmlTagName Statement
 hi! link xmlEndTag Statement
 hi! link markdownItalic Preproc
 hi! link asciidocQuotedEmphasized Preproc
+if !s:italics
+  hi Comment gui=NONE cterm=NONE
+endif
 
 if s:t_Co >= 256
   hi Normal ctermfg=250 ctermbg=234 cterm=NONE
@@ -183,7 +187,7 @@ if s:t_Co >= 256
   hi! link Terminal Normal
   hi! link CursorIM Cursor
   hi! link QuickFixLine Search
-  hi Comment ctermfg=242 ctermbg=NONE cterm=NONE
+  hi Comment ctermfg=242 ctermbg=NONE cterm=italic
   hi Conceal ctermfg=250 ctermbg=NONE cterm=NONE
   hi Constant ctermfg=208 ctermbg=NONE cterm=NONE
   hi Error ctermfg=131 ctermbg=NONE cterm=reverse
@@ -238,7 +242,10 @@ if s:t_Co >= 256
   hi! link xmlEndTag Statement
   hi! link markdownItalic Preproc
   hi! link asciidocQuotedEmphasized Preproc
-  unlet s:t_Co
+  if !s:italics
+    hi Comment cterm=NONE
+  endif
+  unlet s:t_Co s:italics
   finish
 endif
 
@@ -297,7 +304,7 @@ if s:t_Co >= 16
   hi! link Terminal Normal
   hi! link CursorIM Cursor
   hi! link QuickFixLine Search
-  hi Comment ctermfg=lightgrey ctermbg=NONE cterm=NONE
+  hi Comment ctermfg=lightgrey ctermbg=NONE cterm=italic
   hi Conceal ctermfg=lightgrey ctermbg=NONE cterm=NONE
   hi Constant ctermfg=red ctermbg=NONE cterm=NONE
   hi Error ctermfg=darkred ctermbg=NONE cterm=reverse
@@ -352,7 +359,10 @@ if s:t_Co >= 16
   hi! link xmlEndTag Statement
   hi! link markdownItalic Preproc
   hi! link asciidocQuotedEmphasized Preproc
-  unlet s:t_Co
+  if !s:italics
+    hi Comment cterm=NONE
+  endif
+  unlet s:t_Co s:italics
   finish
 endif
 
@@ -417,7 +427,7 @@ if s:t_Co >= 0
   hi Todo term=bold,reverse
   hi Type term=NONE
   hi Underlined term=underline
-  unlet s:t_Co
+  unlet s:t_Co s:italics
   finish
 endif
 
