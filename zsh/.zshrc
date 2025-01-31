@@ -97,7 +97,7 @@ autoload -U colors && colors
 #                       \d to add date
 #                       \t to add time
 #                       \w to add path to directory
-export PS1="%{%F{10}%}[%*] %1d %% %{$reset_color%}"
+export PS1="%{%F{3}%}[%*] %1d %% %{$reset_color%}"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export GPG_TTY=$(tty)
