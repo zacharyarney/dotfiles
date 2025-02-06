@@ -38,10 +38,10 @@ alias mutt=neomutt
 # weather
 alias weather='curl wttr.in/San+Francisco'
 # gcc
-# alias gcc='gcc-13'
-# alias cc='gcc-13'
-# alias g++='g++-13'
-# alias c++='c++-13'
+alias gcc='gcc-14'
+alias cc='gcc-14'
+alias g++='g++-14'
+alias c++='c++-14'
 # bat
 alias bat='bat --theme=base16'
 # spotify
