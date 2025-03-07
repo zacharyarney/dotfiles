@@ -89,6 +89,8 @@ export BAT_THEME="base16"
 # Default editor
 export VISUAL=nvim
 export EDITOR=nvim
+# Manpage viewer
+export MANPAGER='nvim +Man!'
 autoload -U colors && colors
 # export COLORTERM="truecolor"
 # Custom prompt
