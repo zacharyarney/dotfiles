@@ -45,10 +45,10 @@ alias mutt="neomutt"
 # weather
 alias weather="curl wttr.in/San+Francisco"
 # gcc
-alias gcc='gcc-13'
-alias cc='gcc-13'
-alias g++='g++-13'
-alias c++='c++-13'
+# alias gcc='gcc-13'
+# alias cc='gcc-13'
+# alias g++='g++-13'
+# alias c++='c++-13'
 # ctags
 ctags=/opt/homebrew/bin/ctags
 
