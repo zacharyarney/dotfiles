@@ -8,7 +8,7 @@ font-family = "Iosevka Term"
 font-feature = -calt
 font-feature = -dlig
 font-feature = -liga
-font-size = 14
+font-size = 16
 
 #### SHELL INTEGRATION ####
 cursor-style = block
@@ -16,7 +16,7 @@ cursor-style-blink = true
 shell-integration-features = no-cursor
 
 #### THEME ####
-theme = chill-mentor
+theme = dark-mentor
 
 #### WINDOW ####
 background-opacity = 0.999

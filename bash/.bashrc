@@ -60,7 +60,11 @@ function gi() { curl -sL https://www.toptal.com/developers/gitignore/api/\$@ ;}
 
 ########## SSH ##########
 
-export TZ="America/Los_Angeles"
+# The sed syntax works just like Vim find and replace. # is the delimiter (but
+# it can be anything and usually a slash). In this case it is searching for the
+# path returned from the readlink call and replacing it with an empty string,
+# leaving just the timezone. 's#find#replace#' --> s/find/replace/ just like Vim
+export TZ=$(readlink /etc/localtime | sed 's#/var/db/timezone/zoneinfo/##')
 
 
 ########## FZF ##########

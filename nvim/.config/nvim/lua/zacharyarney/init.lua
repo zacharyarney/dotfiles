@@ -86,7 +86,7 @@ vim.opt.clipboard = { 'unnamed', 'unnamedplus' }
 
 
 -- Set colorscheme
-vim.cmd('colorscheme chill-mentor-nvim')
+vim.cmd('colorscheme dark-mentor-nvim')
 -- vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
 -- vim.api.nvim_set_hl(0, 'NormalFloat', {bg = 'none' })
 
@@ -100,9 +100,9 @@ vim.cmd('colorscheme chill-mentor-nvim')
 function MyStatusLine()
     local rest = ' %m %r %w%=%y %l:%c '
     if vim.fn.expand('%:~:.') == '' or vim.bo.buftype ~= '' then
-        return '%t' .. rest
+        return ' %t' .. rest
     end
-    return vim.fn.expand('%:~:.') .. rest
+    return ' ' .. vim.fn.expand('%:~:.') .. rest
 end
 
 vim.opt.statusline = '%!v:lua.MyStatusLine()'
