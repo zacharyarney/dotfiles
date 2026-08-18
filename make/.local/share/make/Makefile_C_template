@@ -1,0 +1,65 @@
+# Default compiler
+CC ?= cc
+
+# Allow for overriding default C standard
+CSTD ?= c99
+
+# Enforce c99 as minimum standard
+ifeq ($(CSTD),c89)
+override CSTD = c99
+$(warning C89/C90 is not supported, using C99 instead)
+endif
+
+ifeq ($(CSTD),c90)
+override CSTD = c99
+$(warning C89/C90 is not supported, using C99 instead)
+endif
+
+# Compiler flags
+WARNING_FLAGS ?= -Wall -Werror -Wextra
+STD_FLAGS ?= -std=$(CSTD) -pedantic
+INCLUDE_FLAGS ?= -I./src
+DEPFLAGS ?= -MMD -MP
+CFLAGS ?= $(WARNING_FLAGS) $(STD_FLAGS) $(INCLUDE_FLAGS) $(DEPFLAGS)
+
+# Linker flags
+LDFLAGS ?=
+
+# Directories and files
+BIN_DIR := ./bin
+OBJ_DIR := ./obj
+SRC_DIRS := ./src
+TARGET_EXE := wcz
+
+# Find all the C files we want to compile
+SRCS := $(shell find $(SRC_DIRS) -name '*.c')
+
+# Prepends OBJ_DIR and appends .o to every src file
+# Ex: ./dir/hello.c turns into ./obj/./your_dir/hello.c.o
+OBJS := $(patsubst $(SRC_DIRS)/%.c,$(OBJ_DIR)/%.o,$(SRCS))
+
+# Include .d files from compiled .h files
+DEPS := $(OBJS:.o=.d)
+
+.PHONY: all clean
+
+all: $(BIN_DIR)/$(TARGET_EXE)
+
+# Final build step
+$(BIN_DIR)/$(TARGET_EXE): $(OBJS)
+	mkdir -p $(dir $@)
+	$(CC) $(OBJS) $(LDFLAGS) -o $@
+
+# Build objects from source
+# Make uses pattern matching to determine when to run pattern targets
+$(OBJ_DIR)/%.o: $(SRC_DIRS)/%.c
+	mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+	rm -rf $(OBJ_DIR)
+	rm -rf $(BIN_DIR)
+
+# Include the .d makefiles. Preceding dash suppresses errors from missing .d files on initial run
+-include $(DEPS)
+

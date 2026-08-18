@@ -16,6 +16,8 @@ set NERDTree
 " NERDTree commands
 nnoremap <leader>nn :NERDTree<CR>
 vnoremap <leader>nn :NERDTree<CR>
+nnoremap <leader>f :NERDTreeFocus<CR>
+vnoremap <leader>f :NERDTreeFocus<CR>
 nnoremap <leader>nt :NERDTreeToggle<CR>
 vnoremap <leader>nt :NERDTreeToggle<CR>
 " SHIFT-TAB functionality

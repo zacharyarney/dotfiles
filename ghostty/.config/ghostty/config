@@ -19,6 +19,18 @@ shell-integration-features = no-cursor
 theme = dark-mentor
 
 #### WINDOW ####
-background-opacity = 0.999
+window-save-state = never
+window-width = 120
+window-height = 36
+window-step-resize = true
+# background-opacity = 0.999
 macos-titlebar-proxy-icon = hidden
 title = " "
+
+# Big window
+# window-width = 160
+# window-height = 48
+
+# Classic window
+# window-width = 80
+# window-height = 24
