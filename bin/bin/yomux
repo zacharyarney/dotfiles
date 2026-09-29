@@ -7,8 +7,9 @@ if tmux has-session -t $SESSION_NAME 2>/dev/null; then
     tmux attach -t $SESSION_NAME
 else
     tmux new -d -s $SESSION_NAME -n shell
-    tmux new-window -n home 'cd; zsh -i'
-    tmux new-window -n music 'cd; cmus; zsh -i'
-    tmux select-window -t shell
+    tmux new-window -t $SESSION_NAME -n home -c "$HOME"
+    tmux new-window -t $SESSION_NAME -n music -c "$HOME"
+    tmux send-keys -t "$SESSION_NAME:music" "cmus" Enter
+    tmux select-window -t "$SESSION_NAME:shell"
     tmux attach -t $SESSION_NAME
 fi
