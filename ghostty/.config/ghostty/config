@@ -4,11 +4,16 @@ cursor-click-to-move = true
 mouse-hide-while-typing = true
 
 #### FONT ####
-font-family = "Iosevka Term"
+font-family = "Terminus (TTF)"
+font-size = 16
+# font-family = "Greybeard 17px"
+# font-size = 17
+# font-family = "Iosevka Term"
+# font-size = 16
 font-feature = -calt
 font-feature = -dlig
 font-feature = -liga
-font-size = 16
+font-thicken = false
 
 #### SHELL INTEGRATION ####
 cursor-style = block
